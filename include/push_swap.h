@@ -1,19 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mkaliszc <mkaliszc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/07 22:10:45 by mkaliszc          #+#    #+#             */
-/*   Updated: 2024/11/08 03:45:54 by mkaliszc         ###   ########.fr       */
+/*   Created: 2024/11/08 03:43:35 by mkaliszc          #+#    #+#             */
+/*   Updated: 2024/11/08 03:44:48 by mkaliszc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "include/libft.h"
-#include "include/push_swap.h"
+# ifndef PUSH_SWAP_H
+# define PUSH_SWAP_H
 
-int	main(char **argv, int argc)
-{
-	
-}
+int	checker_arg(char **args, int nbr_of_args);
+
+#endif
