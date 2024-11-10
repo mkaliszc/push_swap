@@ -87,4 +87,6 @@ int		ft_putint_unsigned(int nbr);
 int		ft_puthexa_upper(unsigned long nb, int n);
 int		ft_puthexa(unsigned long nb, int n);
 
+int		checker_arg(char **args, int nbr_of_args);
+
 #endif

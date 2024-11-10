@@ -6,14 +6,14 @@
 /*   By: mkaliszc <mkaliszc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 22:10:45 by mkaliszc          #+#    #+#             */
-/*   Updated: 2024/11/08 03:45:54 by mkaliszc         ###   ########.fr       */
+/*   Updated: 2024/11/10 02:08:14 by mkaliszc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "include/libft.h"
-#include "include/push_swap.h"
 
-int	main(char **argv, int argc)
+int	main(int argc, char **argv)
 {
-	
+	ft_printf("%d\n", checker_arg(argv, argc));
+	return(0);
 }

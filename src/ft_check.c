@@ -6,11 +6,11 @@
 /*   By: mkaliszc <mkaliszc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 02:35:47 by mkaliszc          #+#    #+#             */
-/*   Updated: 2024/11/08 03:44:38 by mkaliszc         ###   ########.fr       */
+/*   Updated: 2024/11/10 01:59:26 by mkaliszc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "include/libft.h"
+#include "libft.h"
 
 int	check_overflows(char *str)
 {
@@ -37,7 +37,7 @@ int	check_overflows(char *str)
 			return(0);
 		i++;
 	}
-	
+	return(1);
 }
 
 int	is_valid(char *arg)
@@ -71,7 +71,7 @@ int	checker_arg(char **args, int nbr_of_args)
 		return (ft_putstr_fd("Error\n", 2), 1);
 	while (i < nbr_of_args)
 	{
-		if (is_valid(args[i]) == 0 || check_oveflows(args[i]) == 0)
+		if (is_valid(args[i]) == 0  || check_overflows(args[i]) == 0)
 			return (ft_putstr_fd("Error\n", 2), 1);
 		i++;
 	}
