@@ -15,7 +15,7 @@ SOURCES = $(addprefix src/, $(addsuffix .c, $(FT)))
 OBJS = $(addprefix obj/, $(addsuffix .o, $(FT)))
 
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -Iinclude
+CFLAGS = -Wall -Wextra -Werror -Iinclude -fPIE
 AR = ar
 
 all: $(NAME)
