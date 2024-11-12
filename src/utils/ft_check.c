@@ -6,13 +6,13 @@
 /*   By: mkaliszc <mkaliszc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 02:35:47 by mkaliszc          #+#    #+#             */
-/*   Updated: 2024/11/11 23:15:22 by mkaliszc         ###   ########.fr       */
+/*   Updated: 2024/11/12 03:25:49 by mkaliszc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	check_overflows(char *str)
+static int	check_overflows(char *str)
 {
 	long	nbr;
 	int		sign;
@@ -33,14 +33,14 @@ int	check_overflows(char *str)
 	{
 		nbr = (nbr * 10) + (str[i] - '0');
 		if ((sign == 1 && nbr > INT_MAX)
-		|| (sign == -1 && nbr < INT_MIN))
-			return(0);
+			|| (sign == -1 && nbr < INT_MIN))
+			return (0);
 		i++;
 	}
-	return(1);
+	return (1);
 }
 
-int	is_valid(char *arg)
+static int	is_valid(char *arg)
 {
 	int	j;
 
@@ -68,22 +68,19 @@ static int	compare_numbers(char *str1, char *str2)
 	num1 = ft_atoi(str1);
 	num2 = ft_atoi(str2);
 	return (num1 == num2);
+	
 }
 
-int	checker_arg(char **args, int nbr_of_args)
+static int	ft_check(char **args, int nbr_of_args)
 {
-	int	i;
-	int	j;
+	int		i;
+	int		j;
 
 	i = 1;
-	if (args == NULL)
-		return (ft_putstr_fd("Error\n", 2), 1);
-	if (nbr_of_args < 2)
-		return (ft_putstr_fd("Error\n", 2), 1);
 	while (i < nbr_of_args)
 	{
 		j = 1;
-		if (is_valid(args[i]) == 0  || check_overflows(args[i]) == 0)
+		if (is_valid(args[i]) == 0 || check_overflows(args[i]) == 0)
 			return (ft_putstr_fd("Error\n", 2), 1);
 		while (j < i)
 		{
@@ -94,4 +91,24 @@ int	checker_arg(char **args, int nbr_of_args)
 		i++;
 	}
 	return (0);
+}
+
+int	checker_arg(char **args_v, int nbr_of_args)
+{
+	char	**args;
+	int		check;
+
+	if (nbr_of_args < 2)
+		return (1);
+	if (nbr_of_args == 2)
+	{
+		check = ft_check(args, nbr_of_args);
+		ft_free_all(args, nbr_of_args);
+		return (check);
+	}
+	else
+	{
+		check = ft_check(args_v, nbr_of_args);
+		return (check);
+	}
 }

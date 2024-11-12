@@ -28,17 +28,12 @@ typedef struct s_list
 }					t_list;
 
 int		ft_isalpha(int arg);
-int		ft_isdigit(int arg);
 int		ft_isalnum(int arg);
 int		ft_isascii(int c);
 int		ft_isprint(int c);
-int		ft_atoi(const char *str);
-int		ft_toupper(int c);
-int		ft_tolower(int c);
 int		ft_lstsize(t_list *lst);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 int		ft_memcmp(const void *s1, const void *s2, size_t n);
-int		ft_isspace(int c);
 
 size_t	ft_strlcpy(char *dest, const char *src, size_t n);
 size_t	ft_strlcat(char *dest, const char *src, size_t n);
@@ -54,8 +49,6 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 char	*ft_substr(const char *s, unsigned int start, size_t len);
 char	*ft_strnstr(const char *big, const char *little, size_t len);
 char	*get_next_line(int fd);
-
-char	**ft_split(char const *s, char c);
 
 void	ft_bzero(void *s, size_t n);
 void	ft_striteri(char *s, void (*f)(unsigned int, char*));
@@ -78,6 +71,20 @@ t_list	*ft_lstnew(void *content);
 t_list	*ft_lstlast(t_list *lst);
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 
+// push swap function's
+
+typedef struct s_stack
+{
+	int				value;
+	struct s_stack	*previous;
+	struct s_stack	*next;
+}					t_stack;
+
+int		checker_arg(char **args, int nbr_of_args);
+
+char	**ft_split(char const *s, char c);
+void	ft_free_all(char **tab, size_t j);
+
 int		ft_printf(const char *str, ...);
 int		ft_putchar_m(int c);
 int		ft_putstr_m(char *str);
@@ -87,6 +94,10 @@ int		ft_putint_unsigned(int nbr);
 int		ft_puthexa_upper(unsigned long nb, int n);
 int		ft_puthexa(unsigned long nb, int n);
 
-int		checker_arg(char **args, int nbr_of_args);
+int		ft_atoi(const char *str);
+int		ft_isspace(int c);
+int		ft_isdigit(int arg);
+
+t_stack	*init_stack(char **args, int nbr_of_args, t_stack **stack_a);
 
 #endif

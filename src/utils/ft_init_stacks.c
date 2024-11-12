@@ -1,21 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_toupper.c                                       :+:      :+:    :+:   */
+/*   ft_init_stacks.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mkaliszc <mkaliszc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/15 14:11:06 by mkaliszc          #+#    #+#             */
-/*   Updated: 2024/11/04 23:39:09 by mkaliszc         ###   ########.fr       */
+/*   Created: 2024/11/12 01:57:14 by mkaliszc          #+#    #+#             */
+/*   Updated: 2024/11/12 03:57:45 by mkaliszc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_toupper(int c)
+t_stack	*init_stack(char **args, int nbr_of_args, t_stack **stack_a)
 {
-	if (c >= 'a' && c <= 'z')
-		return (c - ('a' - 'A'));
-	else
-		return (c);
+	int	i;
+	int	num;
+
+	i = 1;
+	
 }
