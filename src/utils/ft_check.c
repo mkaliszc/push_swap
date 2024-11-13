@@ -6,7 +6,7 @@
 /*   By: mkaliszc <mkaliszc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 02:35:47 by mkaliszc          #+#    #+#             */
-/*   Updated: 2024/11/12 03:25:49 by mkaliszc         ###   ########.fr       */
+/*   Updated: 2024/11/13 02:20:17 by mkaliszc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,6 @@ static int	compare_numbers(char *str1, char *str2)
 	num1 = ft_atoi(str1);
 	num2 = ft_atoi(str2);
 	return (num1 == num2);
-	
 }
 
 static int	ft_check(char **args, int nbr_of_args)
@@ -93,9 +92,8 @@ static int	ft_check(char **args, int nbr_of_args)
 	return (0);
 }
 
-int	checker_arg(char **args_v, int nbr_of_args)
+int	checker_arg(char **args, int nbr_of_args)
 {
-	char	**args;
 	int		check;
 
 	if (nbr_of_args < 2)
@@ -103,12 +101,11 @@ int	checker_arg(char **args_v, int nbr_of_args)
 	if (nbr_of_args == 2)
 	{
 		check = ft_check(args, nbr_of_args);
-		ft_free_all(args, nbr_of_args);
 		return (check);
 	}
 	else
 	{
-		check = ft_check(args_v, nbr_of_args);
+		check = ft_check(args, nbr_of_args);
 		return (check);
 	}
 }
