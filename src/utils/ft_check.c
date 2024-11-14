@@ -6,7 +6,7 @@
 /*   By: mkaliszc <mkaliszc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 02:35:47 by mkaliszc          #+#    #+#             */
-/*   Updated: 2024/11/13 02:20:17 by mkaliszc         ###   ########.fr       */
+/*   Updated: 2024/11/14 02:24:12 by mkaliszc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,6 @@ static int	is_valid(char *arg)
 	int	j;
 
 	j = 0;
-	while (ft_isspace(arg[j]) == 1)
-		j++;
 	if (!arg[j])
 		return (0);
 	if (arg[j] == '+' || arg[j] == '-')
