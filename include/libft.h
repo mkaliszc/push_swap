@@ -53,7 +53,6 @@ char	*get_next_line(int fd);
 
 void	ft_bzero(void *s, size_t n);
 void	ft_striteri(char *s, void (*f)(unsigned int, char*));
-void	ft_lstadd_front(t_list **lst, t_list *new);
 void	ft_lstiter(t_list *lst, void (*f)(void *));
 void	*ft_calloc(size_t nmemb, size_t size);
 void	*ft_memchr(const void *s, int c, size_t n);
@@ -64,7 +63,7 @@ void	*ft_memset(void *s, int c, size_t n);
 t_list	*ft_lstlast(t_list *lst);
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 
-// push swap function's
+/* push swap function's */
 
 typedef struct s_stack
 {
@@ -72,6 +71,23 @@ typedef struct s_stack
 	struct s_stack	*previous;
 	struct s_stack	*next;
 }					t_stack;
+
+// rules
+
+void	swap_a(t_stack **stack_a);
+void	swap_b(t_stack **stack_b);
+void	swap_s(t_stack **stack_a, t_stack **stack_b);
+
+void	push_b(t_stack **stack_a, t_stack **stack_b);
+void	push_a(t_stack **stack_a, t_stack **stack_b);
+
+void	rotate_a(t_stack	**stack_a);
+void	rotate_b(t_stack	**stack_b);
+void   	rotate_r(t_stack	**stack_a, t_stack	**stack_b);
+
+void	reverse_rotate_a(t_stack	**stack_a);
+void	reverse_rotate_b(t_stack	**stack_b);
+void   	reverserotate_r(t_stack	**stack_a, t_stack	**stack_b);
 
 // tab
 char	**ft_split(char const *s, char c);
@@ -98,5 +114,6 @@ int		is_sorted(t_stack **stack, int nbr_of_args);
 
 // stack related
 t_stack	*init_stack(char **args, int nbr_of_args, t_stack **stack_a);
+void	ft_lstadd_front(t_stack **lst, t_stack *new);
 
 #endif
