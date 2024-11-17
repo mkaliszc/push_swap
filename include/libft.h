@@ -116,4 +116,7 @@ int		is_sorted(t_stack **stack, int nbr_of_args);
 t_stack	*init_stack(char **args, int nbr_of_args, t_stack **stack_a);
 void	ft_lstadd_front(t_stack **lst, t_stack *new);
 
+// sort related
+int		ft_sqrt(int nb);
+
 #endif

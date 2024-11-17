@@ -9,7 +9,8 @@ FT = is/ft_isdigit is/ft_isprint is/ft_isalpha is/ft_isascii is/ft_isalnum is/ft
 	get_next_line/get_next_line \
 	ft_printf/ft_hexa_printf ft_printf/ft_put_printf ft_printf/ft_printf ft_printf/ft_toupper \
 	utils/ft_check utils/ft_init_stacks utils/ft_is_sorted \
-	rules/ft_swap rules/ft_push rules/ft_rotate rules/ft_reverse_rotate \
+	parsing/ft_swap parsing/ft_push parsing/ft_rotate parsing/ft_reverse_rotate \
+	math/ft_sqrt \
 	main \
 
 SOURCES = $(addprefix src/, $(addsuffix .c, $(FT)))

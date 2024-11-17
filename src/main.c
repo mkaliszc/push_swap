@@ -6,7 +6,7 @@
 /*   By: mkaliszc <mkaliszc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 22:10:45 by mkaliszc          #+#    #+#             */
-/*   Updated: 2024/11/17 21:05:56 by mkaliszc         ###   ########.fr       */
+/*   Updated: 2024/11/17 23:46:05 by mkaliszc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,6 @@ int	main(int argc, char **argv)
 	init_stack(args, size, &stack_a);
 	ft_free_tab(args, size);
 	if (is_sorted(&stack_a, size) == 0)
-		return (ft_printf("Sorted\n"), 0);
+		return (0);
 	return (0);
 }
