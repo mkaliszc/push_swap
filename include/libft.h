@@ -83,11 +83,11 @@ void	push_a(t_stack **stack_a, t_stack **stack_b);
 
 void	rotate_a(t_stack	**stack_a);
 void	rotate_b(t_stack	**stack_b);
-void   	rotate_r(t_stack	**stack_a, t_stack	**stack_b);
+void	rotate_r(t_stack	**stack_a, t_stack	**stack_b);
 
 void	reverse_rotate_a(t_stack	**stack_a);
 void	reverse_rotate_b(t_stack	**stack_b);
-void   	reverserotate_r(t_stack	**stack_a, t_stack	**stack_b);
+void	reverse_rotate_r(t_stack	**stack_a, t_stack	**stack_b);
 
 // tab
 char	**ft_split(char const *s, char c);

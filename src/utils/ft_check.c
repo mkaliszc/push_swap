@@ -6,13 +6,13 @@
 /*   By: mkaliszc <mkaliszc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 02:35:47 by mkaliszc          #+#    #+#             */
-/*   Updated: 2024/11/14 02:24:12 by mkaliszc         ###   ########.fr       */
+/*   Updated: 2024/11/17 20:54:58 by mkaliszc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	check_overflows(char *str)
+int	check_overflows(char *str)
 {
 	long	nbr;
 	int		sign;
@@ -32,15 +32,14 @@ static int	check_overflows(char *str)
 	while (str[i] != '\0')
 	{
 		nbr = (nbr * 10) + (str[i] - '0');
-		if ((sign == 1 && nbr > INT_MAX)
-			|| (sign == -1 && nbr < INT_MIN))
+		if ((nbr * sign > 2147483647 || nbr * sign < -2147483648))
 			return (0);
 		i++;
 	}
 	return (1);
 }
 
-static int	is_valid(char *arg)
+int	is_valid(char *arg)
 {
 	int	j;
 
@@ -58,7 +57,7 @@ static int	is_valid(char *arg)
 	return (1);
 }
 
-static int	compare_numbers(char *str1, char *str2)
+int	compare_numbers(char *str1, char *str2)
 {
 	long	num1;
 	long	num2;
@@ -68,12 +67,12 @@ static int	compare_numbers(char *str1, char *str2)
 	return (num1 == num2);
 }
 
-static int	ft_check(char **args, int nbr_of_args)
+int	ft_check(char **args, int nbr_of_args)
 {
 	int		i;
 	int		j;
 
-	i = 1;
+	i = 0;
 	while (i < nbr_of_args)
 	{
 		j = 1;

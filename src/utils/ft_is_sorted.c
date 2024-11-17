@@ -6,7 +6,7 @@
 /*   By: mkaliszc <mkaliszc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 01:27:41 by mkaliszc          #+#    #+#             */
-/*   Updated: 2024/11/14 02:28:06 by mkaliszc         ###   ########.fr       */
+/*   Updated: 2024/11/17 20:41:04 by mkaliszc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,15 +19,12 @@ int	is_sorted(t_stack **stack, int nbr_of_args)
 
 	i = 1;
 	pos = *stack;
-	while (i < nbr_of_args - 1)
+	while (i < nbr_of_args)
 	{
-		if (pos->value < pos->next->value)
-		{
-			i++;
-			pos = pos->next;
-		}
-		else
+		if (pos->value > pos->next->value)
 			return (1);
+		pos = pos->next;
+		i++;
 	}
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: mkaliszc <mkaliszc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 00:07:38 by mkaliszc          #+#    #+#             */
-/*   Updated: 2024/11/17 03:08:09 by mkaliszc         ###   ########.fr       */
+/*   Updated: 2024/11/17 21:04:16 by mkaliszc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ void	push_a(t_stack **stack_a, t_stack **stack_b)
 
 	if (!stack_b || !*stack_b)
 		return ;
-
 	node = *stack_b;
 	if (node->next == node)
 		*stack_b = NULL;
@@ -44,7 +43,6 @@ void	push_b(t_stack **stack_a, t_stack **stack_b)
 
 	if (!stack_a || !*stack_a)
 		return ;
-
 	node = *stack_a;
 	if (node->next == node)
 		*stack_a = NULL;

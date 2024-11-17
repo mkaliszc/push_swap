@@ -6,7 +6,7 @@
 /*   By: mkaliszc <mkaliszc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 01:57:14 by mkaliszc          #+#    #+#             */
-/*   Updated: 2024/11/14 02:24:46 by mkaliszc         ###   ########.fr       */
+/*   Updated: 2024/11/17 20:25:01 by mkaliszc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ t_stack	*init_stack(char **args, int nbr_of_args, t_stack **stack_a)
 	int		i;
 	int		num;
 
-	i = 1;
+	i = 0;
 	pos = *stack_a;
 	while (i < nbr_of_args)
 	{
