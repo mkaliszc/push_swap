@@ -6,7 +6,7 @@
 /*   By: mkaliszc <mkaliszc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 22:10:45 by mkaliszc          #+#    #+#             */
-/*   Updated: 2024/11/17 23:46:05 by mkaliszc         ###   ########.fr       */
+/*   Updated: 2024/11/19 22:14:28 by mkaliszc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ static char	**handle_args(int argc, char **argv, int *size)
 			args[i] = ft_strdup(argv[i + 1]);
 		args[i] = NULL;
 	}
+	ft_init_array(args, *size);
 	return (args);
 }
 

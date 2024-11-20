@@ -8,8 +8,8 @@ FT = is/ft_isdigit is/ft_isprint is/ft_isalpha is/ft_isascii is/ft_isalnum is/ft
 	lst/ft_lstadd_front lst/ft_lstsize lst/ft_lstlast lst/ft_lstiter \
 	get_next_line/get_next_line \
 	ft_printf/ft_hexa_printf ft_printf/ft_put_printf ft_printf/ft_printf ft_printf/ft_toupper \
-	utils/ft_check utils/ft_init_stacks utils/ft_is_sorted \
-	parsing/ft_swap parsing/ft_push parsing/ft_rotate parsing/ft_reverse_rotate \
+	parsing/ft_check parsing/ft_init_stacks parsing/ft_is_sorted parsing/ft_sort_array \
+	rules/ft_swap rules/ft_push rules/ft_rotate rules/ft_reverse_rotate \
 	math/ft_sqrt \
 	main \
 
