@@ -6,7 +6,7 @@
 /*   By: mkaliszc <mkaliszc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 22:10:45 by mkaliszc          #+#    #+#             */
-/*   Updated: 2024/11/19 22:14:28 by mkaliszc         ###   ########.fr       */
+/*   Updated: 2024/11/20 21:52:47 by mkaliszc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,6 @@ static char	**handle_args(int argc, char **argv, int *size)
 			args[i] = ft_strdup(argv[i + 1]);
 		args[i] = NULL;
 	}
-	ft_init_array(args, *size);
 	return (args);
 }
 
@@ -58,8 +57,8 @@ int	main(int argc, char **argv)
 	if (checker_arg(args, size) != 0)
 		return (1);
 	init_stack(args, size, &stack_a);
-	ft_free_tab(args, size);
 	if (is_sorted(&stack_a, size) == 0)
 		return (0);
+	ft_push_swap(args, size, &stack_a, &stack_b);
 	return (0);
 }

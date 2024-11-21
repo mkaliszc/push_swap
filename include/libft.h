@@ -72,14 +72,13 @@ typedef struct s_stack
 	struct s_stack	*next;
 }					t_stack;
 
-/* typedef struct s_chunk
+typedef struct s_chunk
 {
-    int     *values;
-    int     size;
-    int     start_index;     // Starting index in original array
-    int     chunk_index;     // Position in chunks array
-    bool    is_remainder;    // Is this the remainder chunk?
-} t_chunk; */
+	int		**values;
+	int		mid_start;
+	int		mid_end;
+	size_t	nbr_of_chunks;
+}			t_chunk;
 
 // rules
 
@@ -127,6 +126,7 @@ void	ft_lstadd_front(t_stack **lst, t_stack *new);
 
 // sort related
 int		ft_sqrt(int nb);
-int		*ft_init_array(char **args, int nbr_of_args);
+t_chunk	*ft_create_chunk(int *array, int args_nbr);
+void	ft_chunk_sort(t_stack *stack_a, t_stack *stack_b, t_chunk *chunks);
 
 #endif

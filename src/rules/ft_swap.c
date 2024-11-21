@@ -6,7 +6,7 @@
 /*   By: mkaliszc <mkaliszc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/14 02:32:34 by mkaliszc          #+#    #+#             */
-/*   Updated: 2024/11/17 21:01:34 by mkaliszc         ###   ########.fr       */
+/*   Updated: 2024/11/20 20:35:57 by mkaliszc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,19 +16,15 @@ void	swap(t_stack **head)
 {
 	t_stack	*first;
 	t_stack	*second;
+	int		tmp;
 
 	if (!head || !*head || !(*head)->next)
 		return ;
 	first = *head;
 	second = first->next;
-	if (second->next)
-		second->next->previous = first;
-	if (first->previous)
-		first->previous->next = second;
-	first->next = second->next;
-	second->next = first;
-	second->previous = first->previous;
-	first->previous = second;
+	tmp = first->value;
+	first->value = second->value;
+	second->value = tmp;
 }
 
 void	swap_a(t_stack **stack_a)
