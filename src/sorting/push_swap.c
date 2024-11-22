@@ -6,7 +6,7 @@
 /*   By: mkaliszc <mkaliszc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/20 21:49:39 by mkaliszc          #+#    #+#             */
-/*   Updated: 2024/11/21 02:14:10 by mkaliszc         ###   ########.fr       */
+/*   Updated: 2024/11/22 06:19:37 by mkaliszc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,5 +20,5 @@ int	ft_push_swap(char **args, int size, t_stack **stack_a, t_stack **stack_b)
 	array = ft_init_array(args, size);
 	chunks = ft_create_chunk(array, size);
 	ft_chunk_sort(stack_a, stack_b, chunks);
-	// Turk sort
+	return(0);
 }

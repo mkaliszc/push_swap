@@ -6,26 +6,11 @@
 /*   By: mkaliszc <mkaliszc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 01:57:14 by mkaliszc          #+#    #+#             */
-/*   Updated: 2024/11/20 21:48:14 by mkaliszc         ###   ########.fr       */
+/*   Updated: 2024/11/22 06:14:33 by mkaliszc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-void	ft_lstclear(t_stack **lst)
-{
-	t_stack	*pos;
-
-	if (!lst || !*lst)
-		return ;
-	while (*lst)
-	{
-		pos = (*lst)-> next;
-		free(lst);
-		*lst = pos;
-	}
-	lst = NULL;
-}
 
 void	ft_lstadd_back(t_stack **lst, t_stack *new)
 {
@@ -72,10 +57,7 @@ t_stack	*init_stack(char **args, int nbr_of_args, t_stack **stack_a)
 		num = ft_atoi(args[i]);
 		node = ft_new_node(num);
 		if (!node)
-		{
-			ft_lstclear(stack_a);
-			return (NULL); //free all (tab + lst) de preference
-		}
+			return (NULL); // fonction free lst
 		ft_lstadd_back(stack_a, node);
 		if (i == 1)
 			pos = node;

@@ -1,32 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_stack_length.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mkaliszc <mkaliszc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/14 17:24:11 by mkaliszc          #+#    #+#             */
-/*   Updated: 2024/11/04 23:36:26 by mkaliszc         ###   ########.fr       */
+/*   Created: 2024/11/22 06:06:47 by mkaliszc          #+#    #+#             */
+/*   Updated: 2024/11/22 06:07:50 by mkaliszc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memcpy(void *dest, const void *src, size_t n)
+int	ft_stack_length(t_stack **stack)
 {
-	size_t				i;
-	unsigned char		*d;
-	const unsigned char	*cast;
+	t_stack	*pos;
+	int		count;
 
-	i = 0;
-	cast = (const unsigned char *)src;
-	d = (unsigned char *)dest;
-	if (dest == NULL && src == NULL)
-		return (NULL);
-	while (i < n)
+	if (!stack || !*stack)
+		return (0);
+	pos = *stack;
+	count = 1;
+	while (pos->next != *stack)
 	{
-		d[i] = cast[i];
-		i++;
+		count++;
+		pos = pos->next;
 	}
-	return (dest);
+	return (count);
 }

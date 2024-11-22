@@ -6,7 +6,7 @@
 /*   By: mkaliszc <mkaliszc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 00:11:19 by mkaliszc          #+#    #+#             */
-/*   Updated: 2024/11/21 02:16:01 by mkaliszc         ###   ########.fr       */
+/*   Updated: 2024/11/22 06:17:51 by mkaliszc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,6 @@ int	*ft_fill_values(int *array, int size, int index)
 int	**ft_init_values(int *array, int args_nbr, t_chunk *chunks, int remain)
 {
 	int	**values;
-	int	remain;
 	int	size;
 	int	i;
 
@@ -56,15 +55,15 @@ int	**ft_init_values(int *array, int args_nbr, t_chunk *chunks, int remain)
 	{
 		values[i] = ft_fill_values(array, size, i * size);
 		if (values[i] == NULL)
-			return (free_values(values, i, chunks), NULL);
+			return (ft_free_values(values, i, chunks), NULL);
 	}
 	if (remain)
 	{
 		values[i] = ft_fill_values(array, remain, i * size);
 		if (values[i] == NULL)
-			return (free_values(values, i, chunks), NULL);
+			return (ft_free_values(values, i, chunks), NULL);
 	}
-	return (chunks);
+	return (values);
 }
 
 t_chunk	*ft_create_chunk(int *array, int args_nbr)
