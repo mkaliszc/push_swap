@@ -6,7 +6,7 @@
 /*   By: mkaliszc <mkaliszc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 00:11:19 by mkaliszc          #+#    #+#             */
-/*   Updated: 2024/11/22 06:17:51 by mkaliszc         ###   ########.fr       */
+/*   Updated: 2024/11/23 18:24:07 by mkaliszc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,16 +46,17 @@ int	**ft_init_values(int *array, int args_nbr, t_chunk *chunks, int remain)
 	int	size;
 	int	i;
 
-	i = -1;
+	i = 0;
 	size = args_nbr / ft_sqrt(args_nbr);
 	values = malloc(sizeof(int *) * chunks->nbr_of_chunks);
 	if (values == NULL)
 		return (NULL);
-	while (++i < chunks->nbr_of_chunks)
+	while (i < chunks->nbr_of_chunks)
 	{
 		values[i] = ft_fill_values(array, size, i * size);
 		if (values[i] == NULL)
 			return (ft_free_values(values, i, chunks), NULL);
+		i++;
 	}
 	if (remain)
 	{

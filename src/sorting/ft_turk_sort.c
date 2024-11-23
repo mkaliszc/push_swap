@@ -6,7 +6,7 @@
 /*   By: mkaliszc <mkaliszc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/23 05:43:17 by mkaliszc          #+#    #+#             */
-/*   Updated: 2024/11/23 07:16:59 by mkaliszc         ###   ########.fr       */
+/*   Updated: 2024/11/23 18:28:44 by mkaliszc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	find_gap(t_stack *head_a, int value)
 	current = head_a;
 	pos = 0;
 	gap_pos = 0;
-	while (current->next != head_a->next)
+	while (pos < ft_stack_length(head_a))
 	{
 		if (current->value < value && current->next->value > value)
 			gap_pos = pos + 1;
@@ -37,7 +37,7 @@ int	get_rotate_cost(t_stack **stack, int target_gap)
 {
 	int	length;
 
-	length = ft_stack_length(stack);
+	length = ft_stack_length(*stack);
 	if (target_gap <= length / 2)
 		return (target_gap);
 	return (length - target_gap);
@@ -51,7 +51,7 @@ int	element_rotate_cost(t_stack **stack, t_stack *element)
 
 	i = 0;
 	head = *stack;
-	length = ft_stack_length(stack);
+	length = ft_stack_length(*stack);
 	while (head != element)
 	{
 		head = head->next;
@@ -92,12 +92,12 @@ void	ft_turk_sort(t_stack **stack_a, t_stack **stack_b, t_cost *cost)
 	int		target;
 	t_stack	*pos_b;
 	
-	while (*stack_b)
+	while (ft_stack_length(*stack_b) != 0)
 	{
 		pos_b = *stack_b;
 		cost->best = INT_MAX;
 		best_nbr = NULL;
-		while (pos_b->next != (*stack_b)->next)
+		while (pos_b != (*stack_b)->next)
 		{
 			target = find_gap(*stack_a, pos_b->value);
 			cost->nbr_op_a = get_rotate_cost(stack_a, target);

@@ -126,7 +126,7 @@ int		*ft_init_array(char **args, int nbr_of_args);
 // stack related
 t_stack	*init_stack(char **args, int nbr_of_args, t_stack **stack_a);
 void	ft_lstadd_front(t_stack **lst, t_stack *new);
-int		ft_stack_length(t_stack **stack);
+int		ft_stack_length(t_stack *stack);
 
 // sort related
 int		ft_sqrt(int nb);

@@ -6,7 +6,7 @@
 /*   By: mkaliszc <mkaliszc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 01:57:14 by mkaliszc          #+#    #+#             */
-/*   Updated: 2024/11/22 06:14:33 by mkaliszc         ###   ########.fr       */
+/*   Updated: 2024/11/23 19:38:44 by mkaliszc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	ft_lstadd_back(t_stack **lst, t_stack *new)
 		return ;
 	}
 	pos = *lst;
-	while (pos -> next != NULL)
+	while (pos -> next != *lst && pos->next)
 		pos = pos -> next;
 	pos -> next = new;
 	new -> previous = pos;
@@ -46,24 +46,31 @@ t_stack	*ft_new_node(int value)
 t_stack	*init_stack(char **args, int nbr_of_args, t_stack **stack_a)
 {
 	t_stack	*node;
-	t_stack	*pos;
+	t_stack	*first;
+	t_stack	*last;
 	int		i;
-	int		num;
 
 	i = 0;
-	pos = *stack_a;
+	first = NULL;
+	last = NULL;
 	while (i < nbr_of_args)
 	{
-		num = ft_atoi(args[i]);
-		node = ft_new_node(num);
+		node = ft_new_node(ft_atoi(args[i]));
 		if (!node)
 			return (NULL); // fonction free lst
 		ft_lstadd_back(stack_a, node);
-		if (i == 1)
-			pos = node;
+		if (!first)
+		{
+			first = node;
+			*stack_a = first;
+		}
+		last = node;
 		i++;
 	}
-	pos->previous = node;
-	node->next = pos;
-	return (pos);
+	if (first && last)
+	{
+		last->next = first;
+		first->previous = node;
+	}
+	return (first);
 }
