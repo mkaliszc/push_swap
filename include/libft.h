@@ -65,6 +65,15 @@ typedef struct s_stack
 	struct s_stack	*next;
 }					t_stack;
 
+typedef struct s_cost
+{
+	int	nbr_op_a;
+	int	nbr_op_b;
+	int	total;
+	int	best;
+}					t_cost;
+
+
 typedef struct s_chunk
 {
 	int	**values;
@@ -121,8 +130,10 @@ int		ft_stack_length(t_stack **stack);
 
 // sort related
 int		ft_sqrt(int nb);
+void	case_three(t_stack **stack);
 t_chunk	*ft_create_chunk(int *array, int args_nbr);
 void	ft_chunk_sort(t_stack **stack_a, t_stack **stack_b, t_chunk *tab);
-int		ft_push_swap(char **args, int size, t_stack **stack_a, t_stack **stack_b);
+void	ft_turk_sort(t_stack **stack_a, t_stack **stack_b, t_cost *cost);
+void	ft_push_swap(char **args, int size, t_stack **stack_a, t_stack **stack_b);
 
 #endif
