@@ -6,7 +6,7 @@
 /*   By: mkaliszc <mkaliszc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/23 05:43:17 by mkaliszc          #+#    #+#             */
-/*   Updated: 2024/11/23 18:28:44 by mkaliszc         ###   ########.fr       */
+/*   Updated: 2024/11/24 02:08:03 by mkaliszc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,7 @@ void	rotate_and_push(t_stack **stack_a, t_stack **stack_b, t_stack *best)
 	int	i;
 
 	i = 0;
+	ft_printf("test2\n");
 	target = *stack_a;
 	target_gap = find_gap(*stack_a, best->value);
 	while (i < target_gap)
@@ -92,12 +93,14 @@ void	ft_turk_sort(t_stack **stack_a, t_stack **stack_b, t_cost *cost)
 	int		target;
 	t_stack	*pos_b;
 	
-	while (ft_stack_length(*stack_b) != 0)
+	ft_printf("%d\n", ft_stack_length(*stack_b));
+	while (ft_stack_length(*stack_b) > 0)
 	{
+		ft_printf("test\n");
 		pos_b = *stack_b;
 		cost->best = INT_MAX;
 		best_nbr = NULL;
-		while (pos_b != (*stack_b)->next)
+		while (pos_b != (*stack_b)->previous)
 		{
 			target = find_gap(*stack_a, pos_b->value);
 			cost->nbr_op_a = get_rotate_cost(stack_a, target);

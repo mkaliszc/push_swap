@@ -6,7 +6,7 @@
 /*   By: mkaliszc <mkaliszc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 02:35:47 by mkaliszc          #+#    #+#             */
-/*   Updated: 2024/11/17 20:54:58 by mkaliszc         ###   ########.fr       */
+/*   Updated: 2024/11/24 00:49:05 by mkaliszc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ int	ft_check(char **args, int nbr_of_args)
 	i = 0;
 	while (i < nbr_of_args)
 	{
-		j = 1;
+		j = 0;
 		if (is_valid(args[i]) == 0 || check_overflows(args[i]) == 0)
 			return (ft_putstr_fd("Error\n", 2), 1);
 		while (j < i)

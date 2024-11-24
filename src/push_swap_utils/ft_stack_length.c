@@ -6,7 +6,7 @@
 /*   By: mkaliszc <mkaliszc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 06:06:47 by mkaliszc          #+#    #+#             */
-/*   Updated: 2024/11/23 19:33:58 by mkaliszc         ###   ########.fr       */
+/*   Updated: 2024/11/24 02:16:40 by mkaliszc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	ft_stack_length(t_stack *stack)
 	if (!stack)
 		return (0);
 	pos = stack;
-	count = 0;
+	count = 1;
 	while (pos->next != stack)
 	{
 		count++;

@@ -1,29 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mkaliszc <mkaliszc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/14 21:08:12 by mkaliszc          #+#    #+#             */
-/*   Updated: 2024/11/04 23:36:56 by mkaliszc         ###   ########.fr       */
+/*   Created: 2024/11/23 22:06:39 by mkaliszc          #+#    #+#             */
+/*   Updated: 2024/11/24 01:30:42 by mkaliszc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcpy(char *dest, const char *src, size_t n)
+void	ft_lstadd_front(t_stack **lst, t_stack *new)
 {
-	size_t	i;
-
-	i = 0;
-	if (n == 0)
-		return (ft_strlen(src));
-	while (i < n - 1 && src[i] != '\0')
-	{
-		dest[i] = src[i];
-		i++;
-	}
-	dest[i] = '\0';
-	return (ft_strlen(src));
+	new->previous = (*lst)->previous;
+	(*lst)->previous->next = new;
+	(*lst)->previous = new;
+	new->next = *lst;
+	*lst = new;
 }

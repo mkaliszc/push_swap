@@ -6,7 +6,7 @@
 /*   By: mkaliszc <mkaliszc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 00:11:19 by mkaliszc          #+#    #+#             */
-/*   Updated: 2024/11/23 18:24:07 by mkaliszc         ###   ########.fr       */
+/*   Updated: 2024/11/24 00:07:17 by mkaliszc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,15 +70,28 @@ int	**ft_init_values(int *array, int args_nbr, t_chunk *chunks, int remain)
 t_chunk	*ft_create_chunk(int *array, int args_nbr)
 {
 	t_chunk	*chunks;
+	int		size;
 	int		remain;
+	int		i;
 
+	i = -1;
+	size = args_nbr / ft_sqrt(args_nbr);
 	remain = args_nbr % ft_sqrt(args_nbr);
-	chunks = malloc(sizeof(t_chunk) * (ft_sqrt(args_nbr) + (remain > 0)));
+	chunks = malloc(sizeof(t_chunk));
 	if (chunks == NULL)
 		return (NULL);
 	chunks->nbr_of_chunks = ft_sqrt(args_nbr + (remain > 0));
 	chunks->mid_start = chunks->nbr_of_chunks / 2;
-	chunks->mid_end = chunks->mid_start + 1;
+	chunks->mid_end = chunks->mid_start;
+	chunks->chunks_sizes = malloc(sizeof(int) * chunks->nbr_of_chunks);
+	if (!chunks->chunks_sizes)
+		return (NULL);
+	while (++i < chunks->nbr_of_chunks - 1)
+		chunks->chunks_sizes[i] = size;
+	if (remain)
+		chunks->chunks_sizes[chunks->nbr_of_chunks - 1] = remain;
+	else
+		chunks->chunks_sizes[chunks->nbr_of_chunks - 1] = size;
 	chunks->values = ft_init_values(array, args_nbr, chunks, remain);
 	if (chunks->values == NULL)
 		return (NULL);

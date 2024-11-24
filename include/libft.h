@@ -21,41 +21,6 @@
 # include <fcntl.h>
 # include <limits.h>
 
-typedef struct s_list
-{
-	void			*content;
-	struct s_list	*next;
-}					t_list;
-
-int		ft_isalpha(int arg);
-int		ft_isalnum(int arg);
-int		ft_isascii(int c);
-int		ft_isprint(int c);
-int		ft_lstsize(t_list *lst);
-int		ft_strncmp(const char *s1, const char *s2, size_t n);
-int		ft_toupper(int c);
-
-size_t	ft_strlcpy(char *dest, const char *src, size_t n);
-size_t	ft_strlcat(char *dest, const char *src, size_t n);
-size_t	ft_strlen(const char *s);
-
-char	*ft_strdup(const char *str);
-char	*ft_itoa(int n);
-char	*ft_strtrim(char const *s1, char const *set);
-char	*ft_strchr(const char *str, int c);
-char	*ft_strrchr(const char *str, int c);
-char	*ft_strjoin(char const *s1, char const *s2);
-char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
-char	*ft_substr(const char *s, unsigned int start, size_t len);
-char	*ft_strnstr(const char *big, const char *little, size_t len);
-char	*get_next_line(int fd);
-
-void	ft_striteri(char *s, void (*f)(unsigned int, char*));
-void	ft_lstiter(t_list *lst, void (*f)(void *));
-
-t_list	*ft_lstlast(t_list *lst);
-t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
-
 /* push swap function's */
 
 typedef struct s_stack
@@ -80,7 +45,10 @@ typedef struct s_chunk
 	int	mid_start;
 	int	mid_end;
 	int	nbr_of_chunks;
+	int	*chunks_sizes;
 }			t_chunk;
+
+void	ft_free_all(char **args, t_chunk *chunk, t_stack **s_a, t_stack **s_b);
 
 // rules
 
@@ -102,6 +70,7 @@ void	reverse_rotate_r(t_stack	**stack_a, t_stack	**stack_b);
 // tab
 char	**ft_split(char const *s, char c);
 void	ft_free_tab(char **tab, size_t j);
+char	*ft_strdup(const char *str);
 
 // printf + pustr
 int		ft_printf(const char *str, ...);
@@ -112,6 +81,7 @@ int		ft_putint(int nbr);
 int		ft_putint_unsigned(int nbr);
 int		ft_puthexa_upper(unsigned long nb, int n);
 int		ft_puthexa(unsigned long nb, int n);
+int		ft_toupper(int c);
 
 void	ft_putstr_fd(char *s, int fd);
 
@@ -129,11 +99,19 @@ void	ft_lstadd_front(t_stack **lst, t_stack *new);
 int		ft_stack_length(t_stack *stack);
 
 // sort related
-int		ft_sqrt(int nb);
 void	case_three(t_stack **stack);
 t_chunk	*ft_create_chunk(int *array, int args_nbr);
 void	ft_chunk_sort(t_stack **stack_a, t_stack **stack_b, t_chunk *tab);
 void	ft_turk_sort(t_stack **stack_a, t_stack **stack_b, t_cost *cost);
-void	ft_push_swap(char **args, int size, t_stack **stack_a, t_stack **stack_b);
+void	push_swap(char **args, int size, t_stack **stack_a, t_stack **stack_b);
+
+// utiles
+
+size_t	ft_strlen(const char *s);
+char	*ft_substr(const char *s, unsigned int start, size_t len);
+char	*get_next_line(int fd);
+int		ft_sqrt(int nb);
+char	*ft_strchr(const char *str, int c);
+void	ft_lstadd_front(t_stack **lst, t_stack *new);
 
 #endif
