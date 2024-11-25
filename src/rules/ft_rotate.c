@@ -6,7 +6,7 @@
 /*   By: mkaliszc <mkaliszc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 03:14:27 by mkaliszc          #+#    #+#             */
-/*   Updated: 2024/11/24 00:24:21 by mkaliszc         ###   ########.fr       */
+/*   Updated: 2024/11/24 23:39:43 by mkaliszc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	rotate_a(t_stack	**stack_a)
 	if (!stack_a || !*stack_a)
 		return ;
 	rotate(stack_a);
-	//ft_printf("ra\n");
+	ft_printf("ra\n");
 }
 
 void	rotate_b(t_stack	**stack_b)
@@ -32,7 +32,7 @@ void	rotate_b(t_stack	**stack_b)
 	if (!stack_b || !*stack_b)
 		return ;
 	rotate(stack_b);
-	//ft_printf("rb\n");
+	ft_printf("rb\n");
 }
 
 void	rotate_r(t_stack	**stack_a, t_stack	**stack_b)

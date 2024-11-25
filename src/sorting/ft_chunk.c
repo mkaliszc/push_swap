@@ -6,7 +6,7 @@
 /*   By: mkaliszc <mkaliszc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 00:11:19 by mkaliszc          #+#    #+#             */
-/*   Updated: 2024/11/24 00:07:17 by mkaliszc         ###   ########.fr       */
+/*   Updated: 2024/11/25 00:01:56 by mkaliszc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,8 +81,8 @@ t_chunk	*ft_create_chunk(int *array, int args_nbr)
 	if (chunks == NULL)
 		return (NULL);
 	chunks->nbr_of_chunks = ft_sqrt(args_nbr + (remain > 0));
-	chunks->mid_start = chunks->nbr_of_chunks / 2;
-	chunks->mid_end = chunks->mid_start;
+	chunks->mid_start = 0;
+	//chunks->mid_end = chunks->mid_start;
 	chunks->chunks_sizes = malloc(sizeof(int) * chunks->nbr_of_chunks);
 	if (!chunks->chunks_sizes)
 		return (NULL);

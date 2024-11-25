@@ -6,7 +6,7 @@
 /*   By: mkaliszc <mkaliszc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 01:57:14 by mkaliszc          #+#    #+#             */
-/*   Updated: 2024/11/23 19:38:44 by mkaliszc         ###   ########.fr       */
+/*   Updated: 2024/11/24 19:49:49 by mkaliszc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ t_stack	*init_stack(char **args, int nbr_of_args, t_stack **stack_a)
 	if (first && last)
 	{
 		last->next = first;
-		first->previous = node;
+		first->previous = last;
 	}
 	return (first);
 }

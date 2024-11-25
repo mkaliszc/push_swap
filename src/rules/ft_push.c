@@ -6,7 +6,7 @@
 /*   By: mkaliszc <mkaliszc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 00:07:38 by mkaliszc          #+#    #+#             */
-/*   Updated: 2024/11/24 02:07:44 by mkaliszc         ###   ########.fr       */
+/*   Updated: 2024/11/24 23:38:47 by mkaliszc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,11 +52,10 @@ void	push_b(t_stack **stack_a, t_stack **stack_b)
 		node->previous->next = node->next;
 		*stack_a = node->next;
 	}
+	node->next = node;
+	node->previous = node;
 	if (!*stack_b)
-	{
-		node->next = node;
-		node->previous = node;
-	}
+		*stack_b = node;
 	else
 		ft_lstadd_front(stack_b, node);
 	ft_printf("pb\n");
