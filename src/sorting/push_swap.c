@@ -6,7 +6,7 @@
 /*   By: mkaliszc <mkaliszc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/20 21:49:39 by mkaliszc          #+#    #+#             */
-/*   Updated: 2024/11/25 00:42:19 by mkaliszc         ###   ########.fr       */
+/*   Updated: 2024/11/25 19:02:06 by mkaliszc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,13 +30,11 @@
 	} while (current != *stack);
 } */
 
-void	push_swap(char **args, int size, t_stack **stack_a, t_stack **stack_b)
+void	push_swap(int *array, int size, t_stack **stack_a, t_stack **stack_b)
 {
 	t_chunk	*chunks;
 	t_cost	*cost;
-	int		*array;
 
-	array = ft_init_array(args, size);
 	chunks = ft_create_chunk(array, size);
 	ft_chunk_sort(stack_a, stack_b, chunks);       
 	if(ft_stack_length(*stack_a) == 3)
@@ -45,5 +43,5 @@ void	push_swap(char **args, int size, t_stack **stack_a, t_stack **stack_b)
  	if (cost == NULL)
 		return ;
 	ft_turk_sort(stack_a, stack_b, cost);
-	ft_free_all(args, chunks, stack_a, stack_b);
+	//ft_free_all(args, chunks, stack_a, stack_b);
 }

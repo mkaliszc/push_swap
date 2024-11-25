@@ -6,7 +6,7 @@
 /*   By: mkaliszc <mkaliszc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 22:10:45 by mkaliszc          #+#    #+#             */
-/*   Updated: 2024/11/24 02:25:30 by mkaliszc         ###   ########.fr       */
+/*   Updated: 2024/11/25 19:17:33 by mkaliszc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ int	main(int argc, char **argv)
 	t_stack	*stack_b;
 	char	**args;
 	int		size;
+	int		*array;
 
 	stack_a = NULL;
 	stack_b = NULL;
@@ -56,9 +57,10 @@ int	main(int argc, char **argv)
 		return (ft_putstr_fd("Error\n", 2), 1);
 	if (checker_arg(args, size) != 0)
 		return (1);
-	init_stack(args, size, &stack_a);
+	array = ft_init_array(args, size);
+	init_stack(args, size, &stack_a, array);
 	if (is_sorted(&stack_a, size) == 0)
-		return (0);
+		return (ft_printf("is sorted\n"), 0);
 	push_swap(args, size, &stack_a, &stack_b);
 	return (0);
 }

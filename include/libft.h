@@ -28,6 +28,7 @@ typedef struct s_stack
 	int				value;
 	struct s_stack	*previous;
 	struct s_stack	*next;
+	int				index;
 }					t_stack;
 
 typedef struct s_cost
@@ -38,14 +39,14 @@ typedef struct s_cost
 	int	best;
 }					t_cost;
 
-
 typedef struct s_chunk
 {
-	int	**values;
-	int	mid_start;
-	int	mid_end;
-	int	nbr_of_chunks;
-	int	*chunks_sizes;
+	int	*values;
+	int	start;
+	int	end;
+	int	chunk_size;
+	int	middle;
+	int	cst_set;
 }			t_chunk;
 
 void	ft_free_all(char **args, t_chunk *chunk, t_stack **s_a, t_stack **s_b);
@@ -94,16 +95,16 @@ int		is_sorted(t_stack **stack, int nbr_of_args);
 int		*ft_init_array(char **args, int nbr_of_args);
 
 // stack related
-t_stack	*init_stack(char **args, int nbr_of_args, t_stack **stack_a);
+t_stack	*init_stack(char **args, int nbr_args, t_stack **stack_a, int *array);
 void	ft_lstadd_front(t_stack **lst, t_stack *new);
 int		ft_stack_length(t_stack *stack);
 
 // sort related
 void	case_three(t_stack **stack);
-t_chunk	*ft_create_chunk(int *array, int args_nbr);
-void	ft_chunk_sort(t_stack **stack_a, t_stack **stack_b, t_chunk *tab);
-void	ft_turk_sort(t_stack **stack_a, t_stack **stack_b, t_cost *cost);
-void	push_swap(char **args, int size, t_stack **stack_a, t_stack **stack_b);
+//t_chunk	*ft_create_chunk(int *array, int args_nbr);
+//void	ft_chunk_sort(t_stack **stack_a, t_stack **stack_b, t_chunk *tab);
+//void	ft_turk_sort(t_stack **stack_a, t_stack **stack_b, t_cost *cost);
+void	push_swap(int *array, int size, t_stack **stack_a, t_stack **stack_b);
 
 // utiles
 
