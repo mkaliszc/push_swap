@@ -6,13 +6,13 @@
 /*   By: mkaliszc <mkaliszc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/20 21:49:39 by mkaliszc          #+#    #+#             */
-/*   Updated: 2024/11/25 23:13:26 by mkaliszc         ###   ########.fr       */
+/*   Updated: 2024/11/26 21:59:54 by mkaliszc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/* void	ft_print_stack(t_stack **stack)
+void	ft_print_stack(t_stack **stack)
 {
 	t_stack *current;
 
@@ -28,7 +28,7 @@
 		ft_printf("value : %d --> ", current->value);
 		current = current->next;
 	} while (current != *stack);
-} */
+}
 
 void	push_swap(int *array, int size, t_stack **stack_a, t_stack **stack_b)
 {
@@ -38,12 +38,18 @@ void	push_swap(int *array, int size, t_stack **stack_a, t_stack **stack_b)
 	chunks = ft_create_chunk(array, size);
 	if (chunks == NULL)
 		return ;
-	ft_chunk_sort(stack_a, stack_b, chunks);       
-	if(ft_stack_length(*stack_a) == 3)
+	ft_chunk_sort(chunks, stack_a, stack_b);       
+ 	if(ft_stack_length(*stack_a) == 3)
 		case_three(stack_a);
 	cost = malloc(sizeof(t_cost));
  	if (cost == NULL)
 		return ;
+ 	ft_printf("after turk stack A : ");
+	ft_print_stack(stack_a);
+	ft_printf("\n after chunk stack B : ");
+	ft_print_stack(stack_b);
 	ft_turk_sort(stack_a, stack_b, cost);
+	while ((*stack_a)->index != 0)
+		rotate_a (stack_a);
 	//ft_free_all(args, chunks, stack_a, stack_b);
 }

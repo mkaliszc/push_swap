@@ -6,7 +6,7 @@
 /*   By: mkaliszc <mkaliszc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 01:57:14 by mkaliszc          #+#    #+#             */
-/*   Updated: 2024/11/25 19:13:56 by mkaliszc         ###   ########.fr       */
+/*   Updated: 2024/11/26 19:35:58 by mkaliszc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ t_stack	*ft_new_node(int value, int *array, int nbr_args)
 		if (value == array[i])
 		{
 			node->index = i;
-			break;
+			break  ;
 		}
 		i++;
 	}

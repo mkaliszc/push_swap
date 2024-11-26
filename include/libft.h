@@ -29,6 +29,7 @@ typedef struct s_stack
 	struct s_stack	*previous;
 	struct s_stack	*next;
 	int				index;
+	struct s_stack	*target_pos;
 }					t_stack;
 
 typedef struct s_cost
@@ -102,9 +103,9 @@ int		ft_stack_length(t_stack *stack);
 
 // sort related
 void	case_three(t_stack **stack);
-//t_chunk	*ft_create_chunk(int *array, int args_nbr);
-//void	ft_chunk_sort(t_stack **stack_a, t_stack **stack_b, t_chunk *tab);
-//void	ft_turk_sort(t_stack **stack_a, t_stack **stack_b, t_cost *cost);
+t_chunk	*ft_create_chunk(int *array, int size);
+void	ft_chunk_sort(t_chunk *chunk, t_stack **stack_a, t_stack **stack_b);
+void	ft_turk_sort(t_stack **stack_a, t_stack **stack_b, t_cost *cost);
 void	push_swap(int *array, int size, t_stack **stack_a, t_stack **stack_b);
 
 // utiles

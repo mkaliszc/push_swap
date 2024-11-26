@@ -8,7 +8,8 @@ FT = is/ft_isdigit is/ft_isspace \
 	parsing/ft_check parsing/ft_init_stacks parsing/ft_is_sorted parsing/ft_sort_array \
 	rules/ft_swap rules/ft_push rules/ft_rotate rules/ft_reverse_rotate \
 	push_swap_utils/ft_sqrt push_swap_utils/ft_stack_length push_swap_utils/ft_little_case \
-	push_swap_utils/ft_free_all push_swap_utils/ft_lstadd_front \
+	push_swap_utils/ft_lstadd_front \
+	sorting/ft_chunk_sort sorting/ft_turk_sort sorting/push_swap \
 	main \
 
 SOURCES = $(addprefix src/, $(addsuffix .c, $(FT)))

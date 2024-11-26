@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_chunk.c                                         :+:      :+:    :+:   */
+/*   ft_chunk_sort.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mkaliszc <mkaliszc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 19:18:11 by mkaliszc          #+#    #+#             */
-/*   Updated: 2024/11/26 00:47:33 by mkaliszc         ###   ########.fr       */
+/*   Updated: 2024/11/26 20:55:27 by mkaliszc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ t_chunk	*ft_create_chunk(int *array, int size)
 	chunk->chunk_size = size / chunk->cst_set;
 	chunk->start = chunk->values[chunk->middle - chunk->chunk_size];
 	chunk->end = chunk->values[chunk->middle + chunk->chunk_size];
+	chunk->total_size = size;
 	return (chunk);
 }
 
@@ -45,6 +46,7 @@ int	value_in_chunk(t_chunk *chunk, t_stack **stack)
 	int		j;
 
 	j = 0;
+	tmp = *stack;
 	while (j < chunk->total_size)
 	{
 		i = chunk->start;
@@ -86,7 +88,7 @@ void	ft_chunk_sort(t_chunk *chunk, t_stack **stack_a, t_stack **stack_b)
 
 	if (!chunk || !stack_a || !*stack_a)
 		return ;
-	while (ft_stack_length(stack_a) > 3)
+	while (ft_stack_length(*stack_a) > 3)
 	{
 		while (value_in_chunk(chunk, stack_a) == 1)
 		{
@@ -94,7 +96,7 @@ void	ft_chunk_sort(t_chunk *chunk, t_stack **stack_a, t_stack **stack_b)
 			test = wich_move(chunk, element);
 			if (test == 1)
 				push_b(stack_a, stack_b);
-			else if (test = -1)
+			else if (test == -1)
 			{
 				push_b(stack_a, stack_b);
 				rotate_b(stack_b);
