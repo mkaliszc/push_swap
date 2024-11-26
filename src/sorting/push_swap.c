@@ -6,7 +6,7 @@
 /*   By: mkaliszc <mkaliszc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/20 21:49:39 by mkaliszc          #+#    #+#             */
-/*   Updated: 2024/11/25 19:02:06 by mkaliszc         ###   ########.fr       */
+/*   Updated: 2024/11/25 23:13:26 by mkaliszc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,8 @@ void	push_swap(int *array, int size, t_stack **stack_a, t_stack **stack_b)
 	t_cost	*cost;
 
 	chunks = ft_create_chunk(array, size);
+	if (chunks == NULL)
+		return ;
 	ft_chunk_sort(stack_a, stack_b, chunks);       
 	if(ft_stack_length(*stack_a) == 3)
 		case_three(stack_a);

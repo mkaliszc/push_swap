@@ -47,6 +47,7 @@ typedef struct s_chunk
 	int	chunk_size;
 	int	middle;
 	int	cst_set;
+	int	total_size;
 }			t_chunk;
 
 void	ft_free_all(char **args, t_chunk *chunk, t_stack **s_a, t_stack **s_b);
