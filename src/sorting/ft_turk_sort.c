@@ -6,128 +6,197 @@
 /*   By: mkaliszc <mkaliszc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/26 00:48:20 by mkaliszc          #+#    #+#             */
-/*   Updated: 2024/11/26 22:15:51 by mkaliszc         ###   ########.fr       */
+/*   Updated: 2024/11/28 03:00:27 by mkaliszc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/* pour le turk sort on va prendre un element de la stack_b, trouver l'espace qui lui correspond a l'aide des index 
-(chercher l'index grand le plus proche et l'index petit le plus proche), puis tout remettre en ordre avec l'index 0 en head*/
-
-t_stack	*find_gap(t_stack **stack, t_stack *element)
+int	get_min(t_stack *stack)
 {
-	t_stack	*gap;
+	int		min;
 	t_stack	*tmp;
-	int		full;
 
-	tmp = *stack;
-	full = 0;
- 	while (full < ft_stack_length(*stack))
+	tmp = stack->next;
+	min = stack->value;
+	while (tmp != stack)
 	{
+		if (tmp->value < min)
+			min = tmp->value;
 		tmp = tmp->next;
-		if (tmp->index < element->index)
-			gap = tmp->next;
-		full++;
 	}
-	return (gap);
+	return (min);
 }
 
-int	nbr_of_ra(t_stack **stack, t_stack *gap)
+int	get_max(t_stack *stack)
 {
-	t_stack	*pos;
-	int		count_r;
-	int		count_rr;
+	int		max;
+	t_stack	*tmp;
 
-	count_r = 0;
-	count_rr = 0;
-	pos = *stack;
-	while (pos != gap)
+	tmp = stack->next;
+	max = stack->value;
+	while (tmp != stack)
 	{
-		pos = pos->previous;
-		count_r++;
+		if (tmp->value > max)
+			max = tmp->value;
+		tmp = tmp->next;
 	}
-/* 	pos = *stack;
-	while (pos != gap)
-	{
-		pos = pos->next;
-		count_rr++;
-	}
-	if (count_rr < count_r)
-	{
-		returnn (count_rr)
-	} */
-	return(count_r);
+	return (max);
 }
 
-int	nbr_of_rb(t_stack **stack, t_stack *element)
+int	get_pos_element(t_stack *stack, int node)
 {
-	t_stack	*pos;
-	int		count_r;
-	int		count_rr;
+	t_stack		*tmp;
+	int			i;
 
-	count_r = 0;
-	count_rr = 0;
-	pos = *stack;
-	while (pos != element)
+	i = 0;
+	tmp = stack->next;
+	while (tmp->next != stack)
 	{
-		pos = pos->previous;
-		count_r++;
+		if (tmp->value == node)
+			return (i);
+		tmp = tmp->next;
+		++i;
 	}
-/* 	pos = *stack;
-	while (pos != eleement)
-	{
-		pos = pos->next;
-		count_rr++;
-	}
-	if (count_rr < count_r)
-	{
-		returnn (count_rr)
-	} */
-	return(count_r);
+	return (i);
 }
 
-void	rotate_and_push(t_stack **stack_a, t_stack **stack_b, t_stack *element)
+int	get_pos_to_place(t_stack *stack, int element)
 {
-  	while (*stack_a != element->target_pos && *stack_b != element)
-		rotate_r(stack_a, stack_b);
-	while (*stack_a != element->target_pos)
-		rotate_a(stack_a);
-	while (*stack_b != element)
-		rotate_b(stack_b);
+	int		i;
+	t_stack	*tmp;
+
+	i = 0;
+	if (element > get_max(stack) || element < get_min(stack))
+		return (get_pos_element(stack, get_min(stack)));
+	tmp = stack;
+	while (i < ft_stack_length(stack))
+	{
+		if (tmp->previous->value < element && element < tmp->value)
+			return (i);
+		tmp = tmp->next;
+		i++;
+	}
+	return (0);
+}
+
+int	count_move(t_stack *stack_a, t_stack *stack_b, int elem)
+{
+	int	count;
+	int	index;
+
+	count = 1;
+	index = get_pos_element(stack_b, elem);
+	if (index > 1 && index > (ft_stack_length(stack_b) / 2))
+		count += ft_stack_length(stack_b) - index - 1;
+	else if (index > 1 && index <= (ft_stack_length(stack_b) / 2))
+		count += index - 1;
+	index = get_pos_to_place(stack_a, elem);
+	if (index > 1 && index > (ft_stack_length(stack_a) / 2))
+		count += ft_stack_length(stack_a) - index - 1;
+	else if (index > 1 && index <= (ft_stack_length(stack_a) / 2))
+		count += index - 1;
+	return (count);
+}
+
+int	 get_best_move(t_stack *stack_a, t_stack *stack_b, t_cost *cost)
+{
+	int		best_move_elem;
+	t_stack	*tmp;
+
+	best_move_elem = stack_b->value;
+	cost->best = count_move(stack_a, stack_b, best_move_elem);
+	tmp = stack_b->next;
+	while (tmp != stack_b)
+	{
+		cost->total = count_move(stack_a, stack_b, tmp->value);
+		if (cost->total < cost->best)
+		{
+			cost->best = cost->total;
+			best_move_elem = tmp->value;
+		}
+		tmp = tmp->next;
+	}
+	return (best_move_elem);
+}
+
+int	opti_rotate(t_stack **a, t_stack **b, int pos_a, int pos_b)
+{
+	int	count;
+	
+	count = 0;
+	if (pos_a <= ft_stack_length(*a) / 2 && pos_b <= ft_stack_length(*b) / 2)
+	{
+		while (count < pos_a && count < pos_b)
+		{
+			rotate_r(a, b);
+			count++;
+		}
+	}
+	else if (pos_a > ft_stack_length(*a) / 2 && pos_b > ft_stack_length(*b) / 2)
+	{
+		while (count < (ft_stack_length(*a) - pos_a)
+			&& count < (ft_stack_length(*b) - pos_b))
+		{
+			reverse_rotate_r(a, b);
+			count++;
+		}
+	}
+	return (count);
+}
+
+static t_stack	*r_stack_a(t_stack *stack_a, int target_pos, int nbr_of_r)
+{
+	int	len;
+
+	len = ft_stack_length(stack_a);
+	if (target_pos <= len / 2)
+	{
+		while (nbr_of_r < target_pos)
+		{
+			rotate_a(&stack_a);
+			nbr_of_r++;
+		}
+	}
+	else
+	{
+		while (nbr_of_r < (len - target_pos))
+		{
+			reverse_rotate_a(&stack_a);
+			nbr_of_r++;
+		}
+	}
+	return (stack_a);
+}
+
+void	rotate_and_push(t_stack **stack_a, t_stack **stack_b, int element)
+{
+	int		get_pos_a;
+	int		get_pos_b;
+	int		nbr_of_rotate;
+	
+	get_pos_a = get_pos_to_place(*stack_a, element);
+	get_pos_b = get_pos_element(*stack_a, element);
+	nbr_of_rotate = opti_rotate(stack_a, stack_b, get_pos_a, get_pos_b);
+	while ((*stack_b)->value != element)
+	{
+		if (get_pos_b <= ft_stack_length(*stack_b) / 2)
+			rotate_b(stack_b);
+		else
+			reverse_rotate_b(stack_b);
+	}
+	*stack_a = r_stack_a(*stack_a, get_pos_a, nbr_of_rotate);
 	push_a(stack_a, stack_b);
 }
 
 void	ft_turk_sort(t_stack **stack_a, t_stack **stack_b, t_cost *cost)
 {
-	t_stack	*best_element;
-	t_stack	*element;
-	int		full;
+	int		best_element;
 
 	while (*stack_b)
 	{
-		element = *stack_b;
-		full = 0;
-		cost->best = INT_MAX;
-		while (full < ft_stack_length(*stack_b))
-		{
-			element->target_pos = find_gap(stack_a, element);
-			cost->nbr_op_a = nbr_of_ra(stack_a, element->target_pos);
-			cost->nbr_op_b = nbr_of_rb(stack_b, element);
-			cost->total = cost->nbr_op_a + cost->nbr_op_b;
-			if (cost->total < cost->best)
-			{
-				best_element = element;
-				cost->best = cost->total;
-			}
-			element = element->next;
-			full++;
-		}
-		//ft_printf("value : %d --> target : %d\n", best_element->value, best_element->target_pos->value);
+		best_element = get_best_move(*stack_a, *stack_b, cost);
 		rotate_and_push(stack_a, stack_b, best_element);
 	}
 }
-/*Compter le nombre de rotations qu'il faut faire dans A et dans B (chercher une methode avec les reverse et rr ?)
-puis ajouter l'addition dans le total_cost
-si le total est inferieur au best mettre a jour le best element et le best
-puis avancer dans la stack*/
+
