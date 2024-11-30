@@ -6,7 +6,7 @@
 /*   By: mkaliszc <mkaliszc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/26 00:48:20 by mkaliszc          #+#    #+#             */
-/*   Updated: 2024/11/29 04:19:01 by mkaliszc         ###   ########.fr       */
+/*   Updated: 2024/11/30 18:50:37 by mkaliszc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,13 @@ int	get_min(t_stack *stack)
 	int		min;
 	t_stack	*tmp;
 
+	if (!stack)
+		return (0);
 	tmp = stack->next;
 	min = stack->value;
 	while (tmp != stack)
 	{
-		if (tmp->value < min)
+		if (tmp->value <= min)
 			min = tmp->value;
 		tmp = tmp->next;
 	}
@@ -33,11 +35,13 @@ int	get_max(t_stack *stack)
 	int		max;
 	t_stack	*tmp;
 
+	if (!stack)
+		return (0);
 	tmp = stack->next;
 	max = stack->value;
 	while (tmp != stack)
 	{
-		if (tmp->value > max)
+		if (tmp->value >= max)
 			max = tmp->value;
 		tmp = tmp->next;
 	}
@@ -49,9 +53,13 @@ int	get_pos_element(t_stack *stack, int node)
 	t_stack		*tmp;
 	int			i;
 
-	i = 0;
+	if (!stack)
+		return (0);
+	if (stack->value == node)
+		return (0);
+	i = 1;
 	tmp = stack->next;
-	while (tmp->next != stack)
+	while (tmp != stack)
 	{
 		if (tmp->value == node)
 			return (i);
@@ -68,7 +76,7 @@ int	get_pos_to_place(t_stack *stack, int element)
 
 	i = 0;
 	if (element > get_max(stack) || element < get_min(stack))
-		return (get_pos_element(stack, get_min(stack)) - 1);
+		return (get_pos_element(stack, get_min(stack)));
 	tmp = stack;
 	while (i < ft_stack_length(stack))
 	{
@@ -192,7 +200,7 @@ void	rotate_and_push(t_stack **stack_a, t_stack **stack_b, int element)
 void	ft_turk_sort(t_stack **stack_a, t_stack **stack_b, t_cost *cost)
 {
 	int		best_element;
-	
+
 	while (*stack_b)
 	{
 		best_element = get_best_move(*stack_a, *stack_b, cost);

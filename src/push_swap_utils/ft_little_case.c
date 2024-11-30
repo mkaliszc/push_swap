@@ -6,7 +6,7 @@
 /*   By: mkaliszc <mkaliszc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/23 06:41:49 by mkaliszc          #+#    #+#             */
-/*   Updated: 2024/11/29 02:29:45 by mkaliszc         ###   ########.fr       */
+/*   Updated: 2024/11/23 06:43:46 by mkaliszc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,27 +14,27 @@
 
 void	case_three(t_stack **stack)
 {
-	int	fst;
-	int	scd;
-	int	trd;
+	int first;
+    int second;
+    int third;
 
-	fst = (*stack)->value;
-	scd = (*stack)->next->value;
-	trd = (*stack)->previous->value;
-	if ((fst < scd) && (scd > trd) && (fst < trd))
-	{
-		reverse_rotate_a(stack);
-		swap_a(stack);
-	}
-	else if ((fst < scd) && (scd > trd) && (fst > trd))
-		reverse_rotate_a(stack);
-	else if ((fst > scd) && (scd < trd) && (fst > trd))
-		rotate_a(stack);
-	else if ((fst > scd) && (scd > trd))
-	{
-		swap_a(stack);
-		rotate_a(stack);
-	}
-	else
-		swap_a(stack);
+	first = (*stack)->value;
+	second = (*stack)->next->value;
+	third = (*stack)->next->next->value;
+    if (first > second && second < third && first < third)
+        swap_a(stack);
+    else if (first > second && second > third)
+    {
+        swap_a(stack);
+        reverse_rotate_a(stack);
+    }
+    else if (first > second && second < third && first > third)
+        rotate_a(stack);
+    else if (first < second && second > third && first < third)
+    {
+        swap_a(stack);
+        rotate_a(stack);
+    }
+    else if (first < second && second > third && first > third)
+        reverse_rotate_a(stack);
 }

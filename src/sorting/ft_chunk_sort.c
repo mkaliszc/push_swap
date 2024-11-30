@@ -6,7 +6,7 @@
 /*   By: mkaliszc <mkaliszc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 19:18:11 by mkaliszc          #+#    #+#             */
-/*   Updated: 2024/11/29 04:28:19 by mkaliszc         ###   ########.fr       */
+/*   Updated: 2024/11/30 17:09:17 by mkaliszc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,8 @@ int	value_in_chunk(t_chunk *chunk, t_stack **stack)
 	int		j;
 
 	j = 0;
+	if (!*stack)
+		return (0);
 	tmp = *stack;
 	while (j < chunk->total_size)
 	{
@@ -105,6 +107,6 @@ void	ft_chunk_sort(t_chunk *chunk, t_stack **stack_a, t_stack **stack_b)
 				rotate_a(stack_a);
 		}
 		chunk->start -= chunk->chunk_size;
-		chunk->end += chunk->chunk_size; // opti de coup possible en gardant que les 3 plus grands elements
+		chunk->end += chunk->chunk_size;
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: mkaliszc <mkaliszc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/20 21:49:39 by mkaliszc          #+#    #+#             */
-/*   Updated: 2024/11/29 03:38:43 by mkaliszc         ###   ########.fr       */
+/*   Updated: 2024/11/30 18:53:01 by mkaliszc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,13 +39,13 @@ void	push_swap(int *array, int size, t_stack **stack_a, t_stack **stack_b)
 	if (chunks == NULL)
 		return ;
 	ft_chunk_sort(chunks, stack_a, stack_b);       
- 	if(ft_stack_length(*stack_a) == 3 && is_sorted(stack_a, ft_stack_length(*stack_a)) != 0)
+ 	if(ft_stack_length(*stack_a) == 3)
 		case_three(stack_a);
 	cost = malloc(sizeof(t_cost));
  	if (cost == NULL)
 		return ;
 	ft_turk_sort(stack_a, stack_b, cost);
- 	while ((*stack_a)->index != 0)
-		rotate_a (stack_a);
+  	while ((*stack_a)->index != 0)
+		rotate_a(stack_a);
 	//ft_free_all(args, chunks, stack_a, stack_b);
 }
