@@ -6,31 +6,13 @@
 /*   By: mkaliszc <mkaliszc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/20 21:49:39 by mkaliszc          #+#    #+#             */
-/*   Updated: 2024/11/30 18:53:01 by mkaliszc         ###   ########.fr       */
+/*   Updated: 2024/12/01 23:22:29 by mkaliszc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/* void	ft_print_stack(t_stack **stack)
-{
-	t_stack *current;
-
-	
-	if (!stack || !*stack)
-	{
-		ft_printf("debug\n");
-		return ;
-	}
-	current = *stack;
-	do
-	{
-		ft_printf("value : %d --> ", current->value);
-		current = current->next;
-	} while (current != *stack);
-} */
-
-void	push_swap(int *array, int size, t_stack **stack_a, t_stack **stack_b)
+void	push_swap(int *array, int size, t_stack **a, t_stack **b)
 {
 	t_chunk	*chunks;
 	t_cost	*cost;
@@ -38,14 +20,20 @@ void	push_swap(int *array, int size, t_stack **stack_a, t_stack **stack_b)
 	chunks = ft_create_chunk(array, size);
 	if (chunks == NULL)
 		return ;
-	ft_chunk_sort(chunks, stack_a, stack_b);       
- 	if(ft_stack_length(*stack_a) == 3)
-		case_three(stack_a);
+	ft_chunk_sort(chunks, a, b);
+	if (ft_stack_length(*a) == 3)
+		case_three(a);
 	cost = malloc(sizeof(t_cost));
- 	if (cost == NULL)
+	if (cost == NULL)
 		return ;
-	ft_turk_sort(stack_a, stack_b, cost);
-  	while ((*stack_a)->index != 0)
-		rotate_a(stack_a);
-	//ft_free_all(args, chunks, stack_a, stack_b);
+	ft_turk_sort(a, b, cost);
+	while ((*a)->index != 0)
+	{
+		if (get_pos_element(*a, get_min(*a)) <= ft_stack_length(*a) / 2)
+			rotate_a(a);
+		else
+			reverse_rotate_a(a);
+	}
+	free(cost);
+	ft_free_all(array, chunks, a);
 }

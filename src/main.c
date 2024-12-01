@@ -6,7 +6,7 @@
 /*   By: mkaliszc <mkaliszc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 22:10:45 by mkaliszc          #+#    #+#             */
-/*   Updated: 2024/11/26 19:43:44 by mkaliszc         ###   ########.fr       */
+/*   Updated: 2024/12/01 22:41:34 by mkaliszc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,7 @@ int	main(int argc, char **argv)
 		return (1);
 	array = ft_init_array(args, size);
 	init_stack(args, size, &stack_a, array);
+	ft_free_tab(args, size);
 	if (is_sorted(&stack_a, size) == 0)
 		return (ft_printf("is sorted\n"), 0);
 	push_swap(array, size, &stack_a, &stack_b);

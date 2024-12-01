@@ -6,7 +6,7 @@
 /*   By: mkaliszc <mkaliszc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/23 22:06:39 by mkaliszc          #+#    #+#             */
-/*   Updated: 2024/11/24 19:56:54 by mkaliszc         ###   ########.fr       */
+/*   Updated: 2024/12/01 21:45:53 by mkaliszc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,12 @@
 void	ft_lstadd_front(t_stack **lst, t_stack *new)
 {
 	if (!*lst)
-    {
+	{
 		new->next = new;
 		new->previous = new;
 		*lst = new;
-		return;
-    }
+		return ;
+	}
 	new->previous = (*lst)->previous;
 	(*lst)->previous->next = new;
 	(*lst)->previous = new;

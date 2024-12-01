@@ -6,7 +6,7 @@
 /*   By: mkaliszc <mkaliszc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 01:57:14 by mkaliszc          #+#    #+#             */
-/*   Updated: 2024/11/26 19:35:58 by mkaliszc         ###   ########.fr       */
+/*   Updated: 2024/12/01 21:41:08 by mkaliszc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ t_stack	*ft_new_node(int value, int *array, int nbr_args)
 		if (value == array[i])
 		{
 			node->index = i;
-			break  ;
+			break ;
 		}
 		i++;
 	}
@@ -68,7 +68,7 @@ t_stack	*init_stack(char **args, int nbr_args, t_stack **stack_a, int *array)
 	{
 		node = ft_new_node(ft_atoi(args[i]), array, nbr_args);
 		if (!node)
-			return (NULL); // fonction free lst
+			return (NULL);
 		ft_lstadd_back(stack_a, node);
 		if (!first)
 			first = node;

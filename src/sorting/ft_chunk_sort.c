@@ -6,7 +6,7 @@
 /*   By: mkaliszc <mkaliszc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 19:18:11 by mkaliszc          #+#    #+#             */
-/*   Updated: 2024/11/30 17:09:17 by mkaliszc         ###   ########.fr       */
+/*   Updated: 2024/12/01 23:46:36 by mkaliszc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,10 @@
 
 int	ft_wich_cst(int	size)
 {
-	if (size <= 10)
-		return (5);
-	else if (size <= 150)
-		return (8);
+	if (size <= 200)
+		return (4);
 	else
-		return (18);
+		return (8);
 }
 
 t_chunk	*ft_create_chunk(int *array, int size)
@@ -52,7 +50,7 @@ int	value_in_chunk(t_chunk *chunk, t_stack **stack)
 	while (j < chunk->total_size)
 	{
 		i = chunk->start;
-		while (i <= chunk->end)
+		while (i < chunk->end)
 		{
 			if (tmp->value == chunk->values[i])
 				return (1);
@@ -67,7 +65,7 @@ int	value_in_chunk(t_chunk *chunk, t_stack **stack)
 int	wich_move(t_chunk *chunk, t_stack *element)
 {
 	int	i;
-	
+
 	i = chunk->start;
 	while (i <= chunk->end)
 	{
@@ -110,3 +108,12 @@ void	ft_chunk_sort(t_chunk *chunk, t_stack **stack_a, t_stack **stack_b)
 		chunk->end += chunk->chunk_size;
 	}
 }
+
+/* 		if (chunk->start - chunk->chunk_size < 0)
+			chunk->start = 0;
+		else if (chunk->start != 0)
+			chunk->start -= chunk->chunk_size;
+		if (chunk->end - chunk->chunk_size > chunk->total_size)
+			chunk->end = chunk->total_size;
+		else if (chunk->end != chunk->total_size)
+			chunk->end += chunk->chunk_size; */

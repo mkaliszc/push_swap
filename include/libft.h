@@ -29,7 +29,6 @@ typedef struct s_stack
 	struct s_stack	*previous;
 	struct s_stack	*next;
 	int				index;
-	struct s_stack	*target_pos;
 }					t_stack;
 
 typedef struct s_cost
@@ -51,7 +50,7 @@ typedef struct s_chunk
 	int	total_size;
 }			t_chunk;
 
-void	ft_free_all(char **args, t_chunk *chunk, t_stack **s_a, t_stack **s_b);
+void	ft_free_all(int *array, t_chunk *chunk, t_stack **s_a);
 
 // rules
 
@@ -110,6 +109,12 @@ void	push_swap(int *array, int size, t_stack **stack_a, t_stack **stack_b);
 
 // utiles
 
+int		get_pos_element(t_stack *stack, int node);
+int		get_pos_to_place(t_stack *stack, int element);
+int		get_best_move(t_stack *stack_a, t_stack *stack_b, t_cost *cost);
+int		get_min(t_stack *stack);
+int		get_max(t_stack *stack);
+int		count_move(t_stack *stack_a, t_stack *stack_b, int elem);
 size_t	ft_strlen(const char *s);
 char	*ft_substr(const char *s, unsigned int start, size_t len);
 char	*get_next_line(int fd);

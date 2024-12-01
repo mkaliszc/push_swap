@@ -6,7 +6,7 @@
 /*   By: mkaliszc <mkaliszc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/23 21:32:11 by mkaliszc          #+#    #+#             */
-/*   Updated: 2024/11/23 22:08:46 by mkaliszc         ###   ########.fr       */
+/*   Updated: 2024/12/01 23:16:10 by mkaliszc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,10 @@ void	ft_free_stack(t_stack **stack)
 	t_stack	*pos;
 	t_stack	*tmp;
 
-	pos = *stack;
-	tmp = NULL;
 	if (!stack || !*stack)
 		return ;
+	pos = *stack;
+	tmp = NULL;
 	(*stack)->previous->next = NULL;
 	while (pos != NULL)
 	{
@@ -28,31 +28,22 @@ void	ft_free_stack(t_stack **stack)
 		free(pos);
 		pos = tmp;
 	}
+	//free(stack);
 }
 
-void	ft_free_chunks(t_chunk *chunks)
+void	ft_free_array(int *array)
 {
-	int	i;
-
-	i = 0;
-	while (i < chunks->nbr_of_chunks)
-	{
-		free(chunks->values[i]);
-		i++;
-	}
-	free(chunks->values);
-	free(chunks);
+	free(array);
 }
 
-void	ft_free_all(char **args, t_chunk *chunk, t_stack **s_a, t_stack **s_b)
+void	ft_free_chunk(t_chunk *chunk)
 {
-	int	size;
+	free(chunk);
+}
 
-	size = 0;
-	while (args[size] != NULL)
-		size++;
-	ft_free_tab(args, size);
-	ft_free_chunks(chunk);
+void	ft_free_all(int *array, t_chunk *chunk, t_stack **s_a)
+{
+	ft_free_array(array);
+	ft_free_chunk(chunk);
 	ft_free_stack(s_a);
-	ft_free_stack(s_b);
 }
