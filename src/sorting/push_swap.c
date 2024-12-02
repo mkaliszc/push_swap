@@ -6,7 +6,7 @@
 /*   By: mkaliszc <mkaliszc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/20 21:49:39 by mkaliszc          #+#    #+#             */
-/*   Updated: 2024/12/01 23:22:29 by mkaliszc         ###   ########.fr       */
+/*   Updated: 2024/12/02 20:27:54 by mkaliszc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	push_swap(int *array, int size, t_stack **a, t_stack **b)
 	t_chunk	*chunks;
 	t_cost	*cost;
 
-	chunks = ft_create_chunk(array, size);
+	chunks = ft_create_chunk(array, size - 1);
 	if (chunks == NULL)
 		return ;
 	ft_chunk_sort(chunks, a, b);
@@ -27,7 +27,7 @@ void	push_swap(int *array, int size, t_stack **a, t_stack **b)
 	if (cost == NULL)
 		return ;
 	ft_turk_sort(a, b, cost);
-	while ((*a)->index != 0)
+	while ((*a)->value != get_min(*a))
 	{
 		if (get_pos_element(*a, get_min(*a)) <= ft_stack_length(*a) / 2)
 			rotate_a(a);

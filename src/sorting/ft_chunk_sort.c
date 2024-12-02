@@ -6,13 +6,13 @@
 /*   By: mkaliszc <mkaliszc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 19:18:11 by mkaliszc          #+#    #+#             */
-/*   Updated: 2024/12/01 23:46:36 by mkaliszc         ###   ########.fr       */
+/*   Updated: 2024/12/02 20:52:02 by mkaliszc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_wich_cst(int	size)
+int	ft_wich_cst(int size)
 {
 	if (size <= 200)
 		return (4);
@@ -28,11 +28,11 @@ t_chunk	*ft_create_chunk(int *array, int size)
 	if (chunk == NULL)
 		return (NULL);
 	chunk->values = array;
-	chunk->middle = size / 2;
+	chunk->middle = (size / 2);
 	chunk->cst_set = ft_wich_cst(size);
 	chunk->chunk_size = size / chunk->cst_set;
-	chunk->start = chunk->values[chunk->middle - chunk->chunk_size];
-	chunk->end = chunk->values[chunk->middle + chunk->chunk_size];
+	chunk->start = chunk->middle - chunk->chunk_size;
+	chunk->end = chunk->middle + chunk->chunk_size;
 	chunk->total_size = size;
 	return (chunk);
 }
@@ -90,7 +90,7 @@ void	ft_chunk_sort(t_chunk *chunk, t_stack **stack_a, t_stack **stack_b)
 		return ;
 	while (ft_stack_length(*stack_a) > 3)
 	{
-		while (value_in_chunk(chunk, stack_a) == 1)
+		while (value_in_chunk(chunk, stack_a) == 1) //  && chunk->start >= 0 && chunk->end < chunk->total_size && ft_stack_length(*stack_a) > 3 test anti boucle infini ?
 		{
 			element = *stack_a;
 			test = wich_move(chunk, element);
@@ -108,12 +108,3 @@ void	ft_chunk_sort(t_chunk *chunk, t_stack **stack_a, t_stack **stack_b)
 		chunk->end += chunk->chunk_size;
 	}
 }
-
-/* 		if (chunk->start - chunk->chunk_size < 0)
-			chunk->start = 0;
-		else if (chunk->start != 0)
-			chunk->start -= chunk->chunk_size;
-		if (chunk->end - chunk->chunk_size > chunk->total_size)
-			chunk->end = chunk->total_size;
-		else if (chunk->end != chunk->total_size)
-			chunk->end += chunk->chunk_size; */
