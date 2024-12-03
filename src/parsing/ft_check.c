@@ -6,7 +6,7 @@
 /*   By: mkaliszc <mkaliszc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 02:35:47 by mkaliszc          #+#    #+#             */
-/*   Updated: 2024/11/24 00:49:05 by mkaliszc         ###   ########.fr       */
+/*   Updated: 2024/12/03 16:39:32 by mkaliszc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,14 +95,6 @@ int	checker_arg(char **args, int nbr_of_args)
 
 	if (nbr_of_args < 2)
 		return (1);
-	if (nbr_of_args == 2)
-	{
-		check = ft_check(args, nbr_of_args);
-		return (check);
-	}
-	else
-	{
-		check = ft_check(args, nbr_of_args);
-		return (check);
-	}
+	check = ft_check(args, nbr_of_args);
+	return (check);
 }

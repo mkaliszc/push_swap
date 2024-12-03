@@ -9,7 +9,7 @@ FT = is/ft_isdigit is/ft_isspace \
 	rules/ft_swap rules/ft_push rules/ft_rotate rules/ft_reverse_rotate \
 	push_swap_utils/ft_stack_length push_swap_utils/ft_little_case \
 	push_swap_utils/ft_lstadd_front push_swap_utils/ft_free_all\
-	sorting/ft_chunk_sort sorting/ft_turk_sort sorting/push_swap sorting/get_functions \
+	sorting/ft_chunk_sort sorting/ft_turk_sort sorting/push_swap sorting/get_functions sorting/ft_chunk_utils\
 	main \
 
 SOURCES = $(addprefix src/, $(addsuffix .c, $(FT)))
@@ -35,5 +35,5 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re bonus
  
