@@ -22,7 +22,6 @@ typedef struct s_stack
 	int				value;
 	struct s_stack	*previous;
 	struct s_stack	*next;
-	int				index;
 }					t_stack;
 
 typedef struct s_cost
@@ -71,7 +70,7 @@ int		is_sorted(t_stack **stack, int nbr_of_args);
 int		*ft_init_array(char **args, int nbr_of_args);
 
 // stack related
-t_stack	*init_stack(char **args, int nbr_args, t_stack **stack_a, int *array);
+t_stack	*init_stack(char **args, int nbr_args, t_stack **stack_a);
 void	ft_stack_add_front(t_stack **lst, t_stack *new);
 int		ft_stack_length(t_stack *stack);
 

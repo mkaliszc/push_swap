@@ -6,7 +6,7 @@ CFLAGS = -Wall -Wextra -Werror -Iinclude
 SRC_DIR = src
 OBJ_DIR = obj
 LIB_DIR = src/octolib
-
+CHECKER_DIR = src/checker
 
 FT = parsing/ft_check parsing/ft_init_stacks parsing/ft_is_sorted parsing/ft_sort_array \
 	rules/ft_swap rules/ft_push rules/ft_rotate rules/ft_reverse_rotate \
@@ -32,6 +32,9 @@ $(NAME): $(OBJS) $(LIB)
 $(LIB):
 	@$(MAKE) -C $(LIB_DIR)
 
+bonus:
+	$(MAKE) -C $(CHECKER_DIR)
+
 clean:
 	@$(MAKE) clean -C $(LIB_DIR)
 	rm -rf $(OBJ_DIR)
@@ -40,6 +43,7 @@ fclean: clean
 	@$(MAKE) fclean -C $(LIB_DIR)
 	rm -f $(NAME)
 
+
 re: fclean all
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re bonus

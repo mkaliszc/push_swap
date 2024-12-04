@@ -6,7 +6,7 @@
 /*   By: mkaliszc <mkaliszc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 01:57:14 by mkaliszc          #+#    #+#             */
-/*   Updated: 2024/12/03 21:51:29 by mkaliszc         ###   ########.fr       */
+/*   Updated: 2024/12/04 14:44:57 by mkaliszc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	ft_stack_add_back(t_stack **lst, t_stack *new)
 	new -> previous = pos;
 }
 
-t_stack	*ft_new_node(int value, int *array, int nbr_args)
+t_stack	*ft_new_node(int value)
 {
 	t_stack	*node;
 	int		i;
@@ -42,19 +42,10 @@ t_stack	*ft_new_node(int value, int *array, int nbr_args)
 	node -> value = value;
 	node -> next = NULL;
 	node -> previous = NULL;
-	while (i < nbr_args)
-	{
-		if (value == array[i])
-		{
-			node->index = i;
-			break ;
-		}
-		i++;
-	}
 	return (node);
 }
 
-t_stack	*init_stack(char **args, int nbr_args, t_stack **stack_a, int *array)
+t_stack	*init_stack(char **args, int nbr_args, t_stack **stack_a)
 {
 	t_stack	*node;
 	t_stack	*first;
@@ -66,7 +57,7 @@ t_stack	*init_stack(char **args, int nbr_args, t_stack **stack_a, int *array)
 	last = NULL;
 	while (i < nbr_args)
 	{
-		node = ft_new_node(ft_atoi(args[i]), array, nbr_args);
+		node = ft_new_node(ft_atoi(args[i]));
 		if (!node)
 			return (NULL);
 		ft_stack_add_back(stack_a, node);
