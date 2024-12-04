@@ -1,30 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_is_sorted.c                                     :+:      :+:    :+:   */
+/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mkaliszc <mkaliszc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/13 01:27:41 by mkaliszc          #+#    #+#             */
-/*   Updated: 2024/12/03 21:44:30 by mkaliszc         ###   ########.fr       */
+/*   Created: 2024/10/19 17:26:02 by mkaliszc          #+#    #+#             */
+/*   Updated: 2024/11/04 23:35:33 by mkaliszc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int	is_sorted(t_stack **stack, int nbr_of_args)
+void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	t_stack	*pos;
-	int		i;
+	t_list	*pos;
 
-	i = 1;
-	pos = *stack;
-	while (i < nbr_of_args)
+	if (new == NULL)
+		return ;
+	if (*lst == NULL)
 	{
-		if (pos->value > pos->next->value)
-			return (1);
-		pos = pos->next;
-		i++;
+		*lst = new;
+		return ;
 	}
-	return (0);
+	pos = *lst;
+	while (pos -> next != NULL)
+		pos = pos -> next;
+	pos -> next = new;
 }

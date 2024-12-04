@@ -6,11 +6,11 @@
 /*   By: mkaliszc <mkaliszc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 22:10:45 by mkaliszc          #+#    #+#             */
-/*   Updated: 2024/12/03 17:17:40 by mkaliszc         ###   ########.fr       */
+/*   Updated: 2024/12/03 21:46:16 by mkaliszc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push_swap.h"
 
 static char	**handle_args(int argc, char **argv, int *size)
 {
@@ -56,12 +56,12 @@ int	main(int argc, char **argv)
 	if (!args)
 		return (ft_putstr_fd("Error\n", 2), 1);
 	if (checker_arg(args, size) != 0)
-		return (1);
+		return (ft_free_tab(args, size), 1);
 	array = ft_init_array(args, size);
 	init_stack(args, size, &stack_a, array);
 	ft_free_tab(args, size);
 	if (is_sorted(&stack_a, size) == 0)
-		return (0);
+		return (ft_free_stack(&stack_a), free(array), 0);
 	push_swap(array, size, &stack_a, &stack_b);
 	return (0);
 }

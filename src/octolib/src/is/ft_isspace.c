@@ -1,30 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_is_sorted.c                                     :+:      :+:    :+:   */
+/*   ft_isspace.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mkaliszc <mkaliszc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/13 01:27:41 by mkaliszc          #+#    #+#             */
-/*   Updated: 2024/12/03 21:44:30 by mkaliszc         ###   ########.fr       */
+/*   Created: 2024/11/08 01:40:40 by mkaliszc          #+#    #+#             */
+/*   Updated: 2024/11/08 01:46:41 by mkaliszc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int	is_sorted(t_stack **stack, int nbr_of_args)
+int	ft_isspace(int c)
 {
-	t_stack	*pos;
-	int		i;
-
-	i = 1;
-	pos = *stack;
-	while (i < nbr_of_args)
-	{
-		if (pos->value > pos->next->value)
-			return (1);
-		pos = pos->next;
-		i++;
-	}
-	return (0);
+	if( c == ' ' || (c >= 9 && c <= 13))
+		return(1);
+	return(0);
 }

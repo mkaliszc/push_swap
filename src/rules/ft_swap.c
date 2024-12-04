@@ -6,11 +6,11 @@
 /*   By: mkaliszc <mkaliszc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/14 02:32:34 by mkaliszc          #+#    #+#             */
-/*   Updated: 2024/12/03 15:03:04 by mkaliszc         ###   ########.fr       */
+/*   Updated: 2024/12/03 21:46:54 by mkaliszc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push_swap.h"
 
 void	swap(t_stack **head)
 {

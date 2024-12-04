@@ -6,11 +6,11 @@
 /*   By: mkaliszc <mkaliszc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 19:18:11 by mkaliszc          #+#    #+#             */
-/*   Updated: 2024/12/03 16:28:45 by mkaliszc         ###   ########.fr       */
+/*   Updated: 2024/12/03 21:46:22 by mkaliszc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push_swap.h"
 
 int	value_in_chunk(t_chunk *chunk, t_stack **stack)
 {

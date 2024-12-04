@@ -1,30 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_is_sorted.c                                     :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mkaliszc <mkaliszc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/13 01:27:41 by mkaliszc          #+#    #+#             */
-/*   Updated: 2024/12/03 21:44:30 by mkaliszc         ###   ########.fr       */
+/*   Created: 2024/10/19 18:20:02 by mkaliszc          #+#    #+#             */
+/*   Updated: 2024/11/04 23:36:01 by mkaliszc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int	is_sorted(t_stack **stack, int nbr_of_args)
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	t_stack	*pos;
-	int		i;
+	t_list	*head;
+	t_list	*new_lst;
 
-	i = 1;
-	pos = *stack;
-	while (i < nbr_of_args)
+	if (!lst || !del || !f)
+		return (NULL);
+	head = NULL;
+	while (lst)
 	{
-		if (pos->value > pos->next->value)
-			return (1);
-		pos = pos->next;
-		i++;
+		new_lst = ft_lstnew(NULL);
+		if (!new_lst)
+		{
+			ft_lstclear(&head, del);
+			return (NULL);
+		}
+		new_lst -> content = f(lst -> content);
+		ft_lstadd_back(&head, new_lst);
+		lst = lst -> next;
 	}
-	return (0);
+	return (head);
 }

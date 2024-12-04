@@ -6,11 +6,11 @@
 /*   By: mkaliszc <mkaliszc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 00:07:38 by mkaliszc          #+#    #+#             */
-/*   Updated: 2024/12/03 15:02:33 by mkaliszc         ###   ########.fr       */
+/*   Updated: 2024/12/03 21:46:09 by mkaliszc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push_swap.h"
 
 void	push_a(t_stack **stack_a, t_stack **stack_b)
 {
@@ -33,7 +33,7 @@ void	push_a(t_stack **stack_a, t_stack **stack_b)
 		node->previous = node;
 	}
 	else
-		ft_lstadd_front(stack_a, node);
+		ft_stack_add_front(stack_a, node);
 	ft_printf("pa\n");
 }
 
@@ -57,6 +57,6 @@ void	push_b(t_stack **stack_a, t_stack **stack_b)
 	if (!*stack_b)
 		*stack_b = node;
 	else
-		ft_lstadd_front(stack_b, node);
+		ft_stack_add_front(stack_b, node);
 	ft_printf("pb\n");
 }

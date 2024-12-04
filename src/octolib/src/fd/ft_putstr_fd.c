@@ -1,30 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_is_sorted.c                                     :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mkaliszc <mkaliszc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/13 01:27:41 by mkaliszc          #+#    #+#             */
-/*   Updated: 2024/12/03 21:44:30 by mkaliszc         ###   ########.fr       */
+/*   Created: 2024/10/17 16:14:00 by mkaliszc          #+#    #+#             */
+/*   Updated: 2024/11/08 01:21:10 by mkaliszc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int	is_sorted(t_stack **stack, int nbr_of_args)
+void	ft_putstr_fd(char *s, int fd)
 {
-	t_stack	*pos;
-	int		i;
+	size_t	i;
 
-	i = 1;
-	pos = *stack;
-	while (i < nbr_of_args)
+	i = 0;
+	while (s[i])
 	{
-		if (pos->value > pos->next->value)
-			return (1);
-		pos = pos->next;
+		ft_putchar_fd(s[i], fd);
 		i++;
 	}
-	return (0);
 }

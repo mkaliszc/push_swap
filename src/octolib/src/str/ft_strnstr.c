@@ -1,30 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_is_sorted.c                                     :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mkaliszc <mkaliszc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/13 01:27:41 by mkaliszc          #+#    #+#             */
-/*   Updated: 2024/12/03 21:44:30 by mkaliszc         ###   ########.fr       */
+/*   Created: 2024/10/15 21:02:45 by mkaliszc          #+#    #+#             */
+/*   Updated: 2024/11/04 23:38:17 by mkaliszc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int	is_sorted(t_stack **stack, int nbr_of_args)
+char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
-	t_stack	*pos;
-	int		i;
+	size_t	i;
+	size_t	j;
 
-	i = 1;
-	pos = *stack;
-	while (i < nbr_of_args)
+	i = 0;
+	if (little[0] == '\0')
+		return ((char *)big);
+	while (big[i] != '\0' && len > i)
 	{
-		if (pos->value > pos->next->value)
-			return (1);
-		pos = pos->next;
+		j = 0;
+		while (big[i + j] == little[j]
+			&& little[j] != '\0' && (i + j) < len)
+			j++;
+		if (little[j] == '\0')
+			return ((char *)&big[i]);
 		i++;
 	}
-	return (0);
+	return (NULL);
 }

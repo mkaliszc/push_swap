@@ -6,13 +6,13 @@
 /*   By: mkaliszc <mkaliszc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/23 22:06:39 by mkaliszc          #+#    #+#             */
-/*   Updated: 2024/12/01 21:45:53 by mkaliszc         ###   ########.fr       */
+/*   Updated: 2024/12/03 21:51:50 by mkaliszc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push_swap.h"
 
-void	ft_lstadd_front(t_stack **lst, t_stack *new)
+void	ft_stack_add_front(t_stack **lst, t_stack *new)
 {
 	if (!*lst)
 	{

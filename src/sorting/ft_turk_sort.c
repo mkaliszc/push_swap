@@ -6,11 +6,11 @@
 /*   By: mkaliszc <mkaliszc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/26 00:48:20 by mkaliszc          #+#    #+#             */
-/*   Updated: 2024/12/01 23:13:26 by mkaliszc         ###   ########.fr       */
+/*   Updated: 2024/12/03 21:46:29 by mkaliszc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push_swap.h"
 
 int	count_move(t_stack *stack_a, t_stack *stack_b, int elem)
 {

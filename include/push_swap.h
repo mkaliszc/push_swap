@@ -10,16 +10,10 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#ifndef PUSH_SWAP_H
+# define PUSH_SWAP_H
 
-# include <stdlib.h>
-# include <stdio.h>
-# include <ctype.h>
-# include <unistd.h>
-# include <stdarg.h>
-# include <fcntl.h>
-# include <limits.h>
+# include "../src/octolib/include/libft.h"
 
 /* push swap function's */
 
@@ -51,6 +45,8 @@ typedef struct s_chunk
 }			t_chunk;
 
 void	ft_free_all(int *array, t_chunk *chunk, t_stack **s_a);
+void	ft_free_stack(t_stack **stack);
+void	ft_free_tab(char **tab, size_t j);
 
 // rules
 
@@ -69,35 +65,14 @@ void	reverse_rotate_a(t_stack	**stack_a);
 void	reverse_rotate_b(t_stack	**stack_b);
 void	reverse_rotate_r(t_stack	**stack_a, t_stack	**stack_b);
 
-// tab
-char	**ft_split(char const *s, char c);
-void	ft_free_tab(char **tab, size_t j);
-char	*ft_strdup(const char *str);
-
-// printf + pustr
-int		ft_printf(const char *str, ...);
-int		ft_putchar_m(int c);
-int		ft_putstr_m(char *str);
-int		ft_putptr(void *ptr);
-int		ft_putint(int nbr);
-int		ft_putint_unsigned(int nbr);
-int		ft_puthexa_upper(unsigned long nb, int n);
-int		ft_puthexa(unsigned long nb, int n);
-int		ft_toupper(int c);
-
-void	ft_putstr_fd(char *s, int fd);
-
 // parsing
 int		checker_arg(char **args, int nbr_of_args);
-int		ft_atoi(const char *str);
-int		ft_isspace(int c);
-int		ft_isdigit(int arg);
 int		is_sorted(t_stack **stack, int nbr_of_args);
 int		*ft_init_array(char **args, int nbr_of_args);
 
 // stack related
 t_stack	*init_stack(char **args, int nbr_args, t_stack **stack_a, int *array);
-void	ft_lstadd_front(t_stack **lst, t_stack *new);
+void	ft_stack_add_front(t_stack **lst, t_stack *new);
 int		ft_stack_length(t_stack *stack);
 
 // sort related
@@ -116,10 +91,5 @@ int		get_min(t_stack *stack);
 int		get_max(t_stack *stack);
 int		count_move(t_stack *stack_a, t_stack *stack_b, int elem);
 size_t	ft_strlen(const char *s);
-char	*ft_substr(const char *s, unsigned int start, size_t len);
-char	*get_next_line(int fd);
-int		ft_sqrt(int nb);
-char	*ft_strchr(const char *str, int c);
-void	ft_lstadd_front(t_stack **lst, t_stack *new);
 
 #endif

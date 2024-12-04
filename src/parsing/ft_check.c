@@ -6,11 +6,11 @@
 /*   By: mkaliszc <mkaliszc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 02:35:47 by mkaliszc          #+#    #+#             */
-/*   Updated: 2024/12/03 16:39:32 by mkaliszc         ###   ########.fr       */
+/*   Updated: 2024/12/03 21:44:26 by mkaliszc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push_swap.h"
 
 int	check_overflows(char *str)
 {
@@ -93,8 +93,8 @@ int	checker_arg(char **args, int nbr_of_args)
 {
 	int		check;
 
-	if (nbr_of_args < 2)
-		return (1);
+	if (nbr_of_args < 2 && is_valid(args[0]) == 0)
+		return (ft_putstr_fd("Error\n", 2), 0);
 	check = ft_check(args, nbr_of_args);
 	return (check);
 }

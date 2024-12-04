@@ -1,30 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_is_sorted.c                                     :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mkaliszc <mkaliszc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/13 01:27:41 by mkaliszc          #+#    #+#             */
-/*   Updated: 2024/12/03 21:44:30 by mkaliszc         ###   ########.fr       */
+/*   Created: 2024/10/17 16:49:31 by mkaliszc          #+#    #+#             */
+/*   Updated: 2024/10/17 17:07:19 by mkaliszc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int	is_sorted(t_stack **stack, int nbr_of_args)
+void	ft_putnbr_fd(int n, int fd)
 {
-	t_stack	*pos;
-	int		i;
-
-	i = 1;
-	pos = *stack;
-	while (i < nbr_of_args)
+	if (n == -2147483648)
 	{
-		if (pos->value > pos->next->value)
-			return (1);
-		pos = pos->next;
-		i++;
+		ft_putstr_fd("-2147483648", fd);
+		return ;
 	}
-	return (0);
+	if (n < 0)
+	{
+		ft_putchar_fd('-', fd);
+		n *= -1;
+	}
+	if (n > 9)
+	{
+		ft_putnbr_fd((n / 10), fd);
+	}
+	ft_putchar_fd((n % 10) + '0', fd);
 }

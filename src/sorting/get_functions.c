@@ -6,11 +6,11 @@
 /*   By: mkaliszc <mkaliszc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/01 21:47:44 by mkaliszc          #+#    #+#             */
-/*   Updated: 2024/12/01 22:36:11 by mkaliszc         ###   ########.fr       */
+/*   Updated: 2024/12/03 21:46:32 by mkaliszc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push_swap.h"
 
 int	get_min(t_stack *stack)
 {

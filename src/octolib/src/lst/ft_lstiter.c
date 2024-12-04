@@ -1,30 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_is_sorted.c                                     :+:      :+:    :+:   */
+/*   ft_lstiter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mkaliszc <mkaliszc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/13 01:27:41 by mkaliszc          #+#    #+#             */
-/*   Updated: 2024/12/03 21:44:30 by mkaliszc         ###   ########.fr       */
+/*   Created: 2024/10/19 18:01:20 by mkaliszc          #+#    #+#             */
+/*   Updated: 2024/10/19 18:09:15 by mkaliszc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int	is_sorted(t_stack **stack, int nbr_of_args)
+void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
-	t_stack	*pos;
-	int		i;
-
-	i = 1;
-	pos = *stack;
-	while (i < nbr_of_args)
+	if (!lst || !f)
+		return ;
+	while (lst)
 	{
-		if (pos->value > pos->next->value)
-			return (1);
-		pos = pos->next;
-		i++;
+		f(lst -> content);
+		lst = lst -> next;
 	}
-	return (0);
 }

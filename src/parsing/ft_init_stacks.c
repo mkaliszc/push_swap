@@ -6,13 +6,13 @@
 /*   By: mkaliszc <mkaliszc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 01:57:14 by mkaliszc          #+#    #+#             */
-/*   Updated: 2024/12/02 20:24:34 by mkaliszc         ###   ########.fr       */
+/*   Updated: 2024/12/03 21:51:29 by mkaliszc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push_swap.h"
 
-void	ft_lstadd_back(t_stack **lst, t_stack *new)
+void	ft_stack_add_back(t_stack **lst, t_stack *new)
 {
 	t_stack	*pos;
 
@@ -69,7 +69,7 @@ t_stack	*init_stack(char **args, int nbr_args, t_stack **stack_a, int *array)
 		node = ft_new_node(ft_atoi(args[i]), array, nbr_args);
 		if (!node)
 			return (NULL);
-		ft_lstadd_back(stack_a, node);
+		ft_stack_add_back(stack_a, node);
 		if (!first)
 			first = node;
 		last = node;

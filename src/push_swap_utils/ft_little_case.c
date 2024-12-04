@@ -6,11 +6,11 @@
 /*   By: mkaliszc <mkaliszc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/23 06:41:49 by mkaliszc          #+#    #+#             */
-/*   Updated: 2024/12/02 19:39:41 by mkaliszc         ###   ########.fr       */
+/*   Updated: 2024/12/03 21:52:05 by mkaliszc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push_swap.h"
 
 void	case_three(t_stack **stack)
 {
