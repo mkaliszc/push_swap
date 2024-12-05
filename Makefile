@@ -37,10 +37,12 @@ bonus:
 
 clean:
 	@$(MAKE) clean -C $(LIB_DIR)
+	@$(MAKE) clean -C $(CHECKER_DIR)
 	rm -rf $(OBJ_DIR)
 
 fclean: clean
 	@$(MAKE) fclean -C $(LIB_DIR)
+	@$(MAKE) fclean -C $(CHECKER_DIR)
 	rm -f $(NAME)
 
 

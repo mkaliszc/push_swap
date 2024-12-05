@@ -6,11 +6,51 @@
 /*   By: mkaliszc <mkaliszc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 17:19:52 by mkaliszc          #+#    #+#             */
-/*   Updated: 2024/12/04 18:17:52 by mkaliszc         ###   ########.fr       */
+/*   Updated: 2024/12/05 18:04:59 by mkaliszc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker.h"
+
+/* void print_stacks(t_stack *stack_a, t_stack *stack_b)
+{
+    t_stack *current_a;
+    t_stack *current_b;
+    int first_a = 1;
+    int first_b = 1;
+    printf("\n=== Stack State ===\n");
+    // Print Stack A
+    printf("Stack A: ");
+    if (stack_a)
+    {
+        current_a = stack_a;
+        do {
+            if (!first_a)
+                printf(" -> ");
+            printf("%d", current_a->value);
+            first_a = 0;
+            current_a = current_a->next;
+        } while (current_a != stack_a);
+    }
+    else
+        printf("(empty)");
+    printf("\n");
+    printf("Stack B: ");
+    if (stack_b)
+    {
+        current_b = stack_b;
+        do {
+            if (!first_b)
+                printf(" -> ");
+            printf("%d", current_b->value);
+            first_b = 0;
+            current_b = current_b->next;
+        } while (current_b != stack_b);
+    }
+    else
+        printf("(empty)");
+    printf("\n================\n\n");
+} */
 
 static char	**handle_args(int argc, char **argv, int *size)
 {
@@ -42,30 +82,30 @@ static char	**handle_args(int argc, char **argv, int *size)
 
 int	do_op(t_stack **stack_a, t_stack **stack_b, char *op)
 {
-	if (ft_strcmp("sa\n", op))
+	if (!ft_strncmp("sa\n", op, 3))
 		swap_a(stack_a);
-	else if (ft_strcmp("sb\n", op))
+	else if (!ft_strncmp("sb\n", op, 3))
 		swap_b(stack_b);
-	else if (ft_strcmp("ss\n", op))
+	else if (!ft_strncmp("ss\n", op, 3))
 		swap_s(stack_a, stack_b);
-	else if (ft_strcmp("pa\n", op))
-		push_a(stack_a, stack_b);
-	else if (ft_strcmp("pb\n", op))
+	else if (!ft_strncmp("pb\n", op, 3))
 		push_b(stack_a, stack_b);
-	else if (ft_strcmp("ra\n", op))
-		rotate_a(stack_a);
-	else if (ft_strcmp("rb\n", op))
-		rotate_b(stack_b);
-	else if (ft_strcmp("rr\n", op))
-		rotate_r(stack_a, stack_b);
-	else if (ft_strcmp("rra\n", op))
+	else if (!ft_strncmp("pa\n", op, 3))
+		push_a(stack_a, stack_b);
+	else if (!ft_strncmp("rra\n", op, 4))
 		reverse_rotate_a(stack_a);
-	else if (ft_strcmp("rrb\n", op))
+	else if (!ft_strncmp("rrb\n", op, 4))
 		reverse_rotate_b(stack_b);
-	else if (ft_strcmp("rrr\n", op))
+	else if (!ft_strncmp("rrr\n", op, 4))
 		reverse_rotate_r(stack_a, stack_b);
+	else if (!ft_strncmp("ra\n", op, 3))
+		rotate_a(stack_a);
+	else if (!ft_strncmp("rb\n", op, 3))
+		rotate_b(stack_b);
+	else if (!ft_strncmp("rr\n", op, 3))
+		rotate_r(stack_a, stack_b);
 	else
-		return(0);
+		return (0);
 	return (1);
 }
 
@@ -73,7 +113,7 @@ void	check_operations(t_stack **stack_a, t_stack **stack_b)
 {
 	char	*operation;
 	int		test;
-	
+
 	while (1)
 	{
 		operation = get_next_line(0);
@@ -114,7 +154,7 @@ int	main(int argc, char **argv)
 	check_operations(&stack_a, &stack_b);
 	if (is_sorted(&stack_a, size) == 0)
 		return (ft_free_stack(&stack_a), ft_printf("OK\n"), 0);
-	else 
+	else
 		return (ft_free_stack(&stack_a), ft_printf("KO\n", 0));
 	return (0);
 }

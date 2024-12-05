@@ -1,41 +1,35 @@
-NAME = checker
+NAME:= checker
 
 CC = cc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -I../../include
+LIB = ../octolib/libft.a
+OUTPUT_DIR = ../../
 
-OBJ_DIR = obj
-LIB_DIR = ../octolib
+SRC =	checker_rules/ft_push.c checker_rules/ft_reverse_rotate.c checker_rules/ft_rotate.c checker_rules/ft_swap.c \
+    	checker.c \
+		../parsing/ft_check.c ../parsing/ft_init_stacks.c ../parsing/ft_is_sorted.c \
+		../push_swap_utils/ft_lstadd_front.c ../push_swap_utils/ft_free_all.c \
 
-SRC = \
-		checker \
-		checker_rules/ft_push checker_rules/ft_rotate checker_rules/ft_reverse_rotate checker_rules/ft_swap \
-		parsing/ft_check parsing/ft_init_stacks parsing/ft_is_sorted \
+OBJ = $(SRC:.c=.o)
 
-SOURCES = $(addsuffix .c, $(SRC))
-OBJS = $(addprefix $(OBJ_DIR)/, $(addsuffix .o, $(SRC)))
-LIB = $(LIB_DIR)/libft.a
+%.o: %.c
+		$(CC) $(CFLAGS) -c $< -o $@
+
+$(NAME): $(OBJ) $(LIB)
+		$(CC) $(CFLAGS) -o $(OUTPUT_DIR)$(NAME) $(OBJ) $(LIB)
+
+$(LIB):
+		$(MAKE) -C ../octolib
 
 all: $(NAME)
 
-$(OBJ_DIR)/%.o: %c
-	@mkdir -p $(dir $@)
-	$(CC) $(CFLAGS) -c $< -o $@
-
-$(NAME): $(OBJS) $(LIB)
-	$(CC) $(CFLAGS) -o $(NAME) $(OBJS) $(LIB)
-
-$(LIB):
-	@$(MAKE) -C $(LIB_DIR)
-
 clean:
-	@$(MAKE) clean -C $(LIB_DIR)
-	rm -rf $(OBJ_DIR)
+		$(MAKE) clean -C ../octolib
+		rm -f $(OBJ)
 
 fclean: clean
-	@$(MAKE) fclean -C $(LIB_DIR)
-	rm -f $(NAME)
-
+		rm -f $(OUTPUT_DIR)$(NAME)
 
 re: fclean all
 
-.PHONY: all clean fclean re 
+.PHONY: all clean fclean re

@@ -6,7 +6,7 @@
 /*   By: mkaliszc <mkaliszc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 14:59:16 by mkaliszc          #+#    #+#             */
-/*   Updated: 2024/11/04 23:36:41 by mkaliszc         ###   ########.fr       */
+/*   Updated: 2024/12/05 17:37:15 by mkaliszc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ char	*ft_strchr(const char *str, int c)
 
 	index = 0;
 	ptr = (char *)str;
-	while (index < (ft_strlen(str) + 1))
+	while (index < (ft_strlen(str)))
 	{
 		if (ptr[index] == (char)c)
 		{

@@ -6,11 +6,11 @@
 /*   By: mkaliszc <mkaliszc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 00:07:38 by mkaliszc          #+#    #+#             */
-/*   Updated: 2024/12/04 16:42:33 by mkaliszc         ###   ########.fr       */
+/*   Updated: 2024/12/05 16:11:24 by mkaliszc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "checker.h"
+#include "../checker.h"
 
 void	push_a(t_stack **stack_a, t_stack **stack_b)
 {

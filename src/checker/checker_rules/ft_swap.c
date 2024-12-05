@@ -6,11 +6,11 @@
 /*   By: mkaliszc <mkaliszc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/14 02:32:34 by mkaliszc          #+#    #+#             */
-/*   Updated: 2024/12/04 16:42:46 by mkaliszc         ###   ########.fr       */
+/*   Updated: 2024/12/05 16:11:36 by mkaliszc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "checker.h"
+#include "../checker.h"
 
 void	swap(t_stack **head)
 {
