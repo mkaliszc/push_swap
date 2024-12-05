@@ -15,11 +15,12 @@ OBJ = $(SRC:.c=.o)
 %.o: %.c
 		$(CC) $(CFLAGS) -c $< -o $@
 
-$(NAME): $(OBJ) $(LIB)
-		$(CC) $(CFLAGS) -o $(OUTPUT_DIR)$(NAME) $(OBJ) $(LIB)
+$(OUTPUT_DIR)$(NAME): $(OBJ) $(LIB)
+			@test ! -f $(OUTPUT_DIR)$(NAME) || (echo "Erreur : $(NAME) existe déjà" && exit 1)
+			$(CC) $(CFLAGS) -o $(OUTPUT_DIR)$(NAME) $(OBJ) $(LIB)
 
 $(LIB):
-		$(MAKE) -C ../octolib
+		$(MAKE) -C ../octolib 
 
 all: $(NAME)
 
