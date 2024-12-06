@@ -9,5 +9,5 @@ Les algos :
 
 - le turk sort va chercher le minimum de coup que j'ai a faire pour placer l'element au bon endroit.
 
-  Bonus part:
+Bonus part:
   Faire un "checker" qui verifie si les operations qu'on donne permet de trier la pile.
