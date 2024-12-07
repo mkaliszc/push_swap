@@ -1,18 +1,21 @@
 Push_swap :
 
-Premier gros projet de 42.On a deux piles A et B, l'objectif est de trier tout une pile en respectant des instructions precises. Pour cela on doit utiliser un algorithme de tri efficace (afin d'avoir une meilleur note).
+Premier gros projet de 42. On a deux piles A et B, l'objectif est de trier toute une pile en respectant des instructions précises. Pour cela, on doit utiliser un algorithme de tri efficace (afin d'avoir une meilleure note).
 
-Personnelement j'utilise un chunk_sort puis un turk_sort afin d'optimiser le nombre de coup, avec cet algo j'atteins un plage de 3894 a ~4500 ce qui permet d'obtenir la note max.
+Personnellement j'utilise un chunk_sort puis un turk_sort afin d'optimiser le nombre de coups, avec cet algo j'atteins une score entre 3894 et ~4500, ce qui permet d'obtenir la note maximale.
 
 Les algos :
-- chunk sort permt de decouper la pile en chunk afin de commencer le tri.
+- Chunk sort permet de découper la pile en chunk afin de faire un pré-tri dans B. Pour la suite je garde 3 valeurs dans A afin d'effectuer un tri simple dessus, le reste est dans B. 
 
-- le turk sort va chercher le minimum de coup que j'ai a faire pour placer l'element au bon endroit.
+- Turk sort va calculer le minimum de coups qu'il faut faire pour placer un élément au bon endroit, afin de trouver le meilleur élément, on effectue ce calcul sur toute la pile. Une fois qu'on a trouvé le meilleur, on l'envoie dans la pile A et le tour est joué !
 
 Bonus part:
-  Faire un "checker" qui verifie si les operations qu'on donne permet de trier la pile. Pour cela je prends les informations donner par mon "push_swap" et j'effectue juste les operations sur mes piles, pour finir je regarde si la est bien trier et voila !
+  Faire un programme nommé "checker" qui vérifie si les opérations qu'on donne permettent de trier la pile. Pour cela je prends les informations données par mon "push_swap" et j'effectue juste les opérations sur mes piles, pour finir, je regarde si la pile A est bien triée et voilà !
 
 Le rendu final :
+- Pour 100 nombres :
+[Screencast from 12-07-2024 11:39:08 PM.webm](https://github.com/user-attachments/assets/1712e16e-90c0-40a3-9f54-d0b476f7d5fe)
 
+
+- Pour 500 nombres :
 https://github.com/user-attachments/assets/e0014914-84b4-4ff4-991b-bc8e3891c710
-
