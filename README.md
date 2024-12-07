@@ -10,4 +10,6 @@ Les algos :
 - le turk sort va chercher le minimum de coup que j'ai a faire pour placer l'element au bon endroit.
 
 Bonus part:
-  Faire un "checker" qui verifie si les operations qu'on donne permet de trier la pile.
+  Faire un "checker" qui verifie si les operations qu'on donne permet de trier la pile. Pour cela je prends les informations donner par mon "push_swap" et j'effectue juste les operations sur mes piles, pour finir je regarde si la est bien trier et voila !
+
+  
