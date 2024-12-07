@@ -12,4 +12,7 @@ Les algos :
 Bonus part:
   Faire un "checker" qui verifie si les operations qu'on donne permet de trier la pile. Pour cela je prends les informations donner par mon "push_swap" et j'effectue juste les operations sur mes piles, pour finir je regarde si la est bien trier et voila !
 
-  
+Le rendu final :
+
+https://github.com/user-attachments/assets/e0014914-84b4-4ff4-991b-bc8e3891c710
+
