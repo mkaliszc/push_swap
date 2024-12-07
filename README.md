@@ -13,9 +13,9 @@ Bonus part:
   Faire un programme nommé "checker" qui vérifie si les opérations qu'on donne permettent de trier la pile. Pour cela je prends les informations données par mon "push_swap" et j'effectue juste les opérations sur mes piles, pour finir, je regarde si la pile A est bien triée et voilà !
 
 Le rendu final :
-- Pour 100 nombres :
-[Screencast from 12-07-2024 11:39:08 PM.webm](https://github.com/user-attachments/assets/1712e16e-90c0-40a3-9f54-d0b476f7d5fe)
 
+- Pour 100 nombres :
+https://github.com/user-attachments/assets/7419df5d-8629-4369-baaf-c7d6f758ecbd
 
 - Pour 500 nombres :
 https://github.com/user-attachments/assets/e0014914-84b4-4ff4-991b-bc8e3891c710
