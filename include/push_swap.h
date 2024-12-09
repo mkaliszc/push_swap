@@ -26,8 +26,6 @@ typedef struct s_stack
 
 typedef struct s_cost
 {
-	int	nbr_op_a;
-	int	nbr_op_b;
 	int	total;
 	int	best;
 }					t_cost;
