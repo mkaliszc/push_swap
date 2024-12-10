@@ -6,7 +6,7 @@
 /*   By: mkaliszc <mkaliszc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 01:57:14 by mkaliszc          #+#    #+#             */
-/*   Updated: 2024/12/04 14:44:57 by mkaliszc         ###   ########.fr       */
+/*   Updated: 2024/12/10 20:39:13 by mkaliszc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,7 @@ void	ft_stack_add_back(t_stack **lst, t_stack *new)
 t_stack	*ft_new_node(int value)
 {
 	t_stack	*node;
-	int		i;
 
-	i = 0;
 	node = malloc(sizeof(t_stack));
 	if (node == NULL)
 		return (NULL);
