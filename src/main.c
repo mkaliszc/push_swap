@@ -6,7 +6,7 @@
 /*   By: mkaliszc <mkaliszc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 22:10:45 by mkaliszc          #+#    #+#             */
-/*   Updated: 2024/12/10 20:38:24 by mkaliszc         ###   ########.fr       */
+/*   Updated: 2024/12/18 16:37:24 by mkaliszc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ int	main(int argc, char **argv)
 	args = handle_args(argc, argv, &size);
 	if (args == NULL || !*args)
 		return (free(args), ft_putstr_fd("Error\n", 2), 1);
-	else if(checker_arg(args, size) != 0)
+	else if (checker_arg(args, size) != 0)
 		return (ft_free_tab(args, size), 1);
 	array = ft_init_array(args, size);
 	init_stack(args, size, &stack_a);
