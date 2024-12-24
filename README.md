@@ -1,6 +1,20 @@
 Push_swap :
 
-Premier gros projet de 42. On a deux piles A et B, l'objectif est de trier toute une pile en respectant des instructions précises. Pour cela, on doit utiliser un algorithme de tri efficace (afin d'avoir une meilleure note).
+Premier gros projet de 42. On a deux piles A et B, au début A possède un nombre aléatoire de valeurs et B est vide, l'objectif est de trier toute une pile en respectant des instructions précises. Pour cela, on doit utiliser un algorithme de tri efficace (afin d'avoir une meilleure note).
+
+Les instructions : 
+
+- sa : Échanger la position des 2 premières valeurs de la pile a.
+- sb : La même chose mais dans la pile b.
+- ss : sa et sb en même temps.
+- pa : Envoie la valeur au sommet de b pour la mettre au sommet de a.
+- pb : L'inverse.
+- ra : Fais monter toutes les valeurs d'un cran dans la pile a (ex : la deuxième valeur devient la première et la première devient la dernière etc).
+- rb : La même chose mais dans b.
+- rr : ra et rb en même temps.
+- rra : ra dans le sens inverse (la premiere valeur devient la deuxieme et la derniere valeur devient la premiere).
+- rrb : Comme rra mais dans b.
+- rrr : rra et rrb en même temps.
 
 Personnellement j'utilise un chunk_sort puis un turk_sort afin d'optimiser le nombre de coups, avec cet algo j'atteins une score entre 3894 et ~4500, ce qui permet d'obtenir la note maximale.
 
